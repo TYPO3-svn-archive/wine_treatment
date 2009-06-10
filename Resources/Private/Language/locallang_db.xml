@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'wine_treatment'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_winetreatment_domain_model_wine">Wine Treatment Wine</label>
+			<label index="tx_winetreatment_domain_model_wine.name">Name</label>
+			<label index="tx_winetreatment_domain_model_wine.icon">Icon</label>
+			<label index="tx_winetreatment_domain_model_usage">Wine Treatment Usage</label>
+			<label index="tx_winetreatment_domain_model_usage.name">Name</label>
+			<label index="tx_winetreatment_domain_model_usage.icon">Icon</label>
+			<label index="tx_winetreatment_domain_model_function">Wine Treatment Function</label>
+			<label index="tx_winetreatment_domain_model_function.name">Name</label>
+			<label index="tx_winetreatment_domain_model_function.icon">Icon</label>
+			<label index="tx_winetreatment_domain_model_specinfo">Wine Treatment Special Information</label>
+			<label index="tx_winetreatment_domain_model_specinfo.information">Information</label>
+			<label index="tx_winetreatment_domain_model_product">Wine Treatment Product</label>
+			<label index="tx_winetreatment_domain_model_product.name">Name</label>
+			<label index="tx_winetreatment_domain_model_product.description">Description</label>
+			<label index="tx_winetreatment_domain_model_product.sdb">Security Datasheet</label>
+			<label index="tx_winetreatment_domain_model_product.gvo">GVO available</label>
+			<label index="tx_winetreatment_domain_model_product.alg_directive">ALG Directive 2003/89/EC</label>
+			<label index="tx_winetreatment_domain_model_product.alg_directive.0">Empty</label>
+			<label index="tx_winetreatment_domain_model_product.alg_directive.1">Nothing</label>
+			<label index="tx_winetreatment_domain_model_product.alg_directive.2">Type in below</label>
+			<label index="tx_winetreatment_domain_model_product.alg_directive_text">ALG Directive 2003/89/EC Text</label>
+			<label index="tx_winetreatment_domain_model_product.alg_alba">ALG ALBA-List</label>
+			<label index="tx_winetreatment_domain_model_product.alg_alba.0">Empty</label>
+			<label index="tx_winetreatment_domain_model_product.alg_alba.1">Nothing</label>
+			<label index="tx_winetreatment_domain_model_product.alg_alba.2">Type in below</label>
+			<label index="tx_winetreatment_domain_model_product.alg_alba_text">ALG ALBA-List Text</label>
+			<label index="tx_winetreatment_domain_model_product.alg_version">ALG Version</label>
+			<label index="tx_winetreatment_domain_model_product.ti_usage">Usage</label>
+			<label index="tx_winetreatment_domain_model_product.ti_dosage">Dosage</label>
+			<label index="tx_winetreatment_domain_model_product.ti_property">Property</label>
+			<label index="tx_winetreatment_domain_model_product.ti_special">Special</label>
+			<label index="tx_winetreatment_domain_model_product.ti_storage">Storage</label>
+			<label index="tx_winetreatment_domain_model_product.ti_quality">Quality</label>
+			<label index="tx_winetreatment_domain_model_product.ti_version">Technical Information Version</label>
+			<label index="tx_winetreatment_domain_model_category">Wine Treatment Category</label>
+			<label index="tx_winetreatment_domain_model_category.name">Name</label>
+			<label index="tx_winetreatment_domain_model_category.url">URL</label>
+			<label index="tx_winetreatment_domain_model_category.gvo_valid">GVO Valid Till</label>
+			<label index="tab_techinfo">Technical Information</label>
+			<label index="tab_general">General Information</label>
+			<label index="tab_alg">ALG Information</label>
+			<label index="tab_association">Associations</label>
+			<label index="tab_other">Other Information</label>
+		</languageKey>
+		<languageKey index="de">EXT:wine_treatment/Resources/Private/Language/de.locallang_db.xml</languageKey>
+	</data>
+</T3locallang>

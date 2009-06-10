@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for frontend belonging to extension 'wine_treatment'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="category_show_products">Show Products</label>
+			<label index="special_information">Special Information</label>
+			<label index="technical_information">Technical Information</label>
+			<label index="gvo">GVO</label>
+			<label index="alg">ALG</label>
+			<label index="sdb">SDB</label>
+			<label index="additional_information">Additional Information</label>
+			<label index="no_products">This category currently doesn't contains any products.</label>
+			<label index="ti_usage">Usage</label>
+			<label index="ti_dosage">Dosage</label>
+			<label index="ti_property">Properties</label>
+			<label index="ti_special">Specials</label>
+			<label index="ti_storage">Storage</label>
+			<label index="ti_quality">Quality</label>
+			<label index="generate_pdf">Generate PDF</label>
+			<label index="gvo_text">We can bla bla</label>
+			<label index="alg_directive_nothing">No ALG regarding directive 2003/89/EC</label>
+			<label index="alg_directive">ALG regarding directive 2003/89/EC</label>
+			<label index="alg_alba_nothing">No ALG regarding ALBA-list</label>
+			<label index="alg_directive">ALG regarding ALBA-list</label>
+		</languageKey>
+		<languageKey index="de">EXT:wine_treatment/Resources/Private/Language/de.locallang.xml</languageKey>
+	</data>
+</T3locallang>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallangExt>
+	<data type="array">
+		<languageKey index="de" type="array">
+			<label index="category_show_products">Produkte anzeigen</label>
+			<label index="special_information">Spezial Informationen</label>
+			<label index="technical_information">Technische Informationen</label>
+			<label index="gvo">GVO</label>
+			<label index="alg">ALG</label>
+			<label index="sdb">SDB</label>
+			<label index="additional_information">Zusätzliche Informationen</label>
+			<label index="no_products">In dieser Kategorie sind momentan keine Produkte vorhanden.</label>
+			<label index="ti_usage">Anwendung</label>
+			<label index="ti_dosage">Dosierung</label>
+			<label index="ti_property">Eigenschaften</label>
+			<label index="ti_special">Besonderheiten</label>
+			<label index="ti_storage">Lagerung</label>
+			<label index="ti_quality">Qualität</label>
+			<label index="generate_pdf">PDF erstellen</label>
+			<label index="gvo_text">Dieses Produkt enthält keine gentechnisch veränderten Roh-, Inhaltsstoffe und Organismen gemäß VO (EG) Nr. 1829/2003 und VO (EG) Nr. 1830/2003.&lt;br&gt;&lt;br&gt;Eine Kennzeichnung gemäß der oben genannten Verordnungen besteht daher nicht.&lt;br&gt;&lt;br&gt;Der GVO-Status wird regelmäßig überprüft.</label>
+		</languageKey>
+	</data>
+</T3locallangExt>

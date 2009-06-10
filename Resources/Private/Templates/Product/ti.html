@@ -1,0 +1,49 @@
+<div class="tx-winetreatment-product">
+	<p class="tx-winetreatment-product-title"><f:translate key="technical_information" /></p>
+	<p class="tx-winetreatment-product-name">{product.name}&nbsp;
+		<f:link.action action="tiPdf" arguments="{product : product}" additionalParams="{eID : 'pdf'}">
+			<f:image src="EXT:wine_treatment/Resources/Public/Images/pdf.gif" alt="PDF" title="<f:translate key='generate_pdf' />" />
+		</f:link.action>
+	</p>
+	<div class="tx-winetreatment-product-description">
+		<f:format.html>{product.description}</f:format.html>
+	</div>
+	<div class="tx-winetreatment-product-ti">
+		<div class="tx-winetreatment-product-header">
+			<f:translate key="ti_usage" />
+		</div>
+		<div class="tx-winetreatment-product-body">
+			<f:format.html>{product.tiUsage}</f:format.html>
+		</div>
+		<div class="tx-winetreatment-product-header">
+			<f:translate key="ti_dosage" />
+		</div>
+		<div class="tx-winetreatment-product-body">
+			<f:format.html>{product.tiDosage}</f:format.html>
+		</div>
+		<div class="tx-winetreatment-product-header">
+			<f:translate key="ti_property" />
+		</div>
+		<div class="tx-winetreatment-product-body">
+			<f:format.html>{product.tiProperty}</f:format.html>
+		</div>
+		<div class="tx-winetreatment-product-header">
+			<f:translate key="ti_special" />
+		</div>
+		<div class="tx-winetreatment-product-body">
+			<f:format.html>{product.tiSpecial}</f:format.html>
+		</div>
+		<div class="tx-winetreatment-product-header">
+			<f:translate key="ti_storage" />
+		</div>
+		<div class="tx-winetreatment-product-body">
+			<f:format.html>{product.tiStorage}</f:format.html>
+		</div>
+		<div class="tx-winetreatment-product-header">
+			<f:translate key="ti_quality" />
+		</div>
+		<div class="tx-winetreatment-product-body">
+			<f:format.html>{product.tiQuality}</f:format.html>
+		</div>
+	</div>
+</div>

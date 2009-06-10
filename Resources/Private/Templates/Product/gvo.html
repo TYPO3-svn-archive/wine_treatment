@@ -1,0 +1,18 @@
+<div class="tx-winetreatment-product">
+	<p class="tx-winetreatment-product-title"><f:translate key="gvo" /></p>
+	<p class="tx-winetreatment-product-name">{product.name}&nbsp;
+		<f:link.action controller="Category" action="gvoPdf" arguments="{product : product}" additionalParams="eID=pdf">
+			<f:image src="EXT:wine_treatment/Resources/Public/Images/pdf.gif" alt="PDF" title="<f:translate key='generate_pdf' />" />
+		</f:link.action>
+	</p>
+	<div class="tx-winetreatment-product-description">
+		<f:format.html>{product.description}</f:format.html>
+	</div>
+	<div class="tx-winetreatment-product-gvo">
+		<f:if condition="{product.gvo}">
+			<f:then>
+				<f:format.html><f:translate key="gvo_text" /></f:format.html>
+			</f:then>
+		</f:if>
+	</div>
+</div>

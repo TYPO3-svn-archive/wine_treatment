@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallangExt>
+	<data type="array">
+		<languageKey index="de" type="array">
+			<label index="tx_winetreatment_domain_model_wine">Weinbehandlung Weinart</label>
+			<label index="tx_winetreatment_domain_model_wine.name">Name</label>
+			<label index="tx_winetreatment_domain_model_wine.icon">Bild</label>
+			<label index="tx_winetreatment_domain_model_usage">Weinbehandlung Anwendung</label>
+			<label index="tx_winetreatment_domain_model_usage.name">Name</label>
+			<label index="tx_winetreatment_domain_model_usage.icon">Bild</label>
+			<label index="tx_winetreatment_domain_model_function">Weinbehandlung Funktion</label>
+			<label index="tx_winetreatment_domain_model_function.name">Name</label>
+			<label index="tx_winetreatment_domain_model_function.icon">Bild</label>
+			<label index="tx_winetreatment_domain_model_specinfo">Weinbehandlung Spezial Information</label>
+			<label index="tx_winetreatment_domain_model_specinfo.information">Information</label>
+			<label index="tx_winetreatment_domain_model_product">Weinbehandlung Produkt</label>
+			<label index="tx_winetreatment_domain_model_product.name">Name</label>
+			<label index="tx_winetreatment_domain_model_product.description">Beschreibung</label>
+			<label index="tx_winetreatment_domain_model_product.sdb">Sicherheitsdatenblatt</label>
+			<label index="tx_winetreatment_domain_model_product.gvo">GVO verfügbar</label>
+			<label index="tx_winetreatment_domain_model_product.alg_directive">ALG Direktive 2003/89/EC</label>
+			<label index="tx_winetreatment_domain_model_product.alg_directive.0">Leer</label>
+			<label index="tx_winetreatment_domain_model_product.alg_directive.1">Keine</label>
+			<label index="tx_winetreatment_domain_model_product.alg_directive.2">Unten eintippen</label>
+			<label index="tx_winetreatment_domain_model_product.alg_directive_text">ALG Direktive 2003/89/EC Text</label>
+			<label index="tx_winetreatment_domain_model_product.alg_alba">ALG ALBA-Liste</label>
+			<label index="tx_winetreatment_domain_model_product.alg_alba.0">Leer</label>
+			<label index="tx_winetreatment_domain_model_product.alg_alba.1">Keine</label>
+			<label index="tx_winetreatment_domain_model_product.alg_alba.2">Unten eintippen</label>
+			<label index="tx_winetreatment_domain_model_product.alg_alba_text">ALG ALBA-Liste Text</label>
+			<label index="tx_winetreatment_domain_model_product.alg_version">ALG Version</label>
+			<label index="tx_winetreatment_domain_model_product.ti_usage">Anwendung</label>
+			<label index="tx_winetreatment_domain_model_product.ti_dosage">Dosierung</label>
+			<label index="tx_winetreatment_domain_model_product.ti_property">Eigenschaften</label>
+			<label index="tx_winetreatment_domain_model_product.ti_special">Spezial</label>
+			<label index="tx_winetreatment_domain_model_product.ti_storage">Lagerung</label>
+			<label index="tx_winetreatment_domain_model_product.ti_quality">Qualität</label>
+			<label index="tx_winetreatment_domain_model_product.ti_version">Technische Information Version</label>
+			<label index="tx_winetreatment_domain_model_category">Weinbehandlung Kategorie</label>
+			<label index="tx_winetreatment_domain_model_category.name">Name</label>
+			<label index="tx_winetreatment_domain_model_category.url">URL</label>
+			<label index="tx_winetreatment_domain_model_category.gvo_valid">GVO Gültig Bis</label>
+			<label index="tab_techinfo">Technische Informationen</label>
+			<label index="tab_general">Allgemeine Informationen</label>
+			<label index="tab_alg">ALG Informationen</label>
+			<label index="tab_association">Beziehungen</label>
+			<label index="tab_other">Andere Informationen</label>
+		</languageKey>
+	</data>
+</T3locallangExt>

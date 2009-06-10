@@ -1,0 +1,111 @@
+<div class="tx-winetreatment-category">
+	<p class="tx-winetreatment-category-show-name">{category.name}</p>
+	<div class="tx-winetreatment-list-container">
+		<f:if condition="{category.products}">
+			<f:then>
+				<table class="tx-winetreatment-category-table">
+					<thead>
+						<tr>
+							<th><f:translate key="product" /></th>
+							<th><f:translate key="special_information" /></th>
+							<th><f:translate key="technical_information" /></th>
+							<th><f:translate key="gvo" /></th>
+							<th><f:translate key="alg" /></th>
+							<th><f:translate key="sdb" /></th>
+						</tr>
+					</thead>
+					<tfoot>
+						<tr>
+							<td colspan="6">
+								<f:if condition="{category.url}">
+									<f:then>
+										<f:translate key="additional_information" />: <a href="http://<f:uri.external uri='{category.url}' />" title="<f:translate key='additional_information' />"><f:uri.external uri="{category.url}" /></a>
+									</f:then>
+								</f:if>
+							</td>
+						</tr>
+					</tfoot>
+					<tbody>
+					<f:for each="{category.products}" as="product">
+						<tr>
+							<td colspan="6" class="tx-winetreatment-category-show-product-name">
+								{product.name}
+							</td>
+						</tr>
+						<tr>
+							<td class="tx-winetreatment-category-show-product-description">
+								<f:format.html>{product.description}</f:format.html>
+							</td>
+							<td>
+								<f:if condition="{product.specialInformation}">
+									<f:then>
+										<f:link.action action="si" controller="Product" arguments="{product : product}">
+											<f:image src="EXT:wine_treatment/Resources/Public/Images/iconSI.gif" alt="<f:translate key='special_information' />" title="<f:translate key='special_information' />" />
+										</f:link.action>
+									</f:then>
+									<f:else>
+										&nbsp;
+									</f:else>
+								</f:if>
+							</td>
+							<td>
+								<f:link.action action="ti" controller="Product" arguments="{product : product}">
+									<f:image src="EXT:wine_treatment/Resources/Public/Images/iconTI.gif" alt="<f:translate key='technical_information' />" title="<f:translate key='technical_information' />" />
+								</f:link.action>
+							</td>
+							<td>
+								<f:if condition="{product.gvo}">
+									<f:then>
+										<f:link.action action="gvo" controller="Product" arguments="{product : product}">
+											<f:image src="EXT:wine_treatment/Resources/Public/Images/iconGVO.gif" alt="<f:translate key='gvo' />" title="<f:translate key='gvo' />" />
+										</f:link.action>
+									</f:then>
+									<f:else>
+										&nbsp;
+									</f:else>
+								</f:if>
+							</td>
+							<td>
+								<f:if condition="{product.algDirective}">
+									<f:then>
+										<f:link.action action="alg" controller="Product" arguments="{product : product}">
+											<f:image src="EXT:wine_treatment/Resources/Public/Images/iconALG.gif" alt="<f:translate key='alg' />" title="<f:translate key='alg' />" />
+										</f:link.action>
+									</f:then>
+									<f:else>
+										<f:if condition="{product.algAlba}">
+											<f:then>
+												<f:link.action action="alg" controller="Product" arguments="{product : product}">
+													<f:image src="EXT:wine_treatment/Resources/Public/Images/iconALG.gif" alt="<f:translate key='alg' />" title="<f:translate key='alg' />" />
+												</f:link.action>
+											</f:then>
+											<f:else>
+												&nbsp;
+											</f:else>
+										</f:if>
+									</f:else>
+								</f:if>
+							</td>
+							<td>
+								<f:if condition="{product.sdb}">
+									<f:then>
+										<f:link.external uri="uploads/tx_winetreatment/{product.sdb}">
+											<f:image src="EXT:wine_treatment/Resources/Public/Images/iconSDB.gif" alt="<f:translate key='sdb' />" title="<f:translate key='sdb' />" />
+										</f:link.external>
+									</f:then>
+									<f:else>
+										&nbsp;
+									</f:else>
+								</f:if>
+							</td>
+						</tr>
+					</f:for>
+					</tbody>
+				</table>
+			</f:then>
+			<f:else>
+				<p><f:translate key="no_products" /></p>
+			</f:else>
+		</f:if>
+	</div>
+</div>
