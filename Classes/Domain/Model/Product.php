@@ -9,6 +9,20 @@
 class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
+	 * Creation Date
+	 *
+	 * @var int
+	 */
+	protected $crdate = 0;
+
+	/**
+	 * Modification Date
+	 *
+	 * @var int
+	 */
+	protected $tstamp = 0;
+
+	/**
 	 * The name
 	 *
 	 * @var string
@@ -159,6 +173,44 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 * Constructs this product
 	 */
 	public function __construct() {
+	}
+
+	/**
+	 * Sets the creation date
+	 *
+	 * @param int $crdate
+	 * @return void
+	 */
+	public function setCrdate($crdate) {
+		$this->crdate = $crdate;
+	}
+
+	/**
+	 * Gets the creation date
+	 *
+	 * @return int
+	 */
+	public function getCrdate() {
+		return $this->crdate;
+	}
+
+	/**
+	 * Sets the modification date
+	 *
+	 * @param int $tstamp
+	 * @return void
+	 */
+	public function setTstamp($tstamp) {
+		$this->tstamp = $tstamp;
+	}
+
+	/**
+	 * Gets the modification date
+	 *
+	 * @return void
+	 */
+	public function getTstamp() {
+		return $this->tstamp;
 	}
 
 	/**
@@ -406,6 +458,25 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 */
 	public function getAlgAlbaText() {
 		return $this->algAlbaText;
+	}
+
+	/**
+	 * Sets the ALG ALBA Text
+	 *
+	 * @param string $algAlbaText
+	 * @return void
+	 */
+	public function setAlgAlbaText($algAlbaText) {
+		$this->algAlbaText = $algAlbaText;
+	}
+
+	/**
+	 * Gets the ALG Directive-List Text
+	 *
+	 * @return string
+	 */
+	public function getAlgDirectiveText() {
+		return $this->algDirectiveText;
 	}
 
 	/**

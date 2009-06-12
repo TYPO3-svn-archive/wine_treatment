@@ -8,15 +8,21 @@ abstract class Tx_WineTreatment_View_Pdf extends Tx_Extbase_MVC_View_AbstractVie
 	protected $pdf;
 
 	/**
-	 * Starts a standard PDF-document
+	 * Initialize PDF-document
 	 *
 	 * @return void
 	 */
-	protected function startPdf() {
+	protected function startInitializePdf() {
 		require_once(t3lib_extMgm::extPath('wine_treatment') . 'Resources/Private/Libs/tcpdf/tcpdf.php');
-		require_once(t3lib_extMgm::extPath('wine_treatment') . 'Resources/Private/Libs/tcpdf/mypdf.php');
+	}
+
+	/**
+	 * Initialize PDF-document
+	 *
+	 * @return void
+	 */
+	protected function endInitializePdf() {
 		define('K_PATH_IMAGES', t3lib_extMgm::extPath('wine_treatment') . 'Resources/Public/Images/');
-		$this->pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 		$this->pdf->SetCreator(PDF_CREATOR);
 		$this->pdf->SetAuthor('ZEFUEG GdbR');
 		$this->pdf->setHeaderData('briefkopf.jpg', 180);
@@ -29,7 +35,30 @@ abstract class Tx_WineTreatment_View_Pdf extends Tx_Extbase_MVC_View_AbstractVie
 		$this->pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
 		$this->pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 		$this->pdf->setFont('dejavusans', '', 10);
-//		$this->pdf->AddPage();
+	}
+
+	/**
+	 * Starts a column PDF-document
+	 *
+	 * @return void
+	 */
+	protected function startColumnPdf() {
+		$this->startInitializePdf();
+		require_once(t3lib_extMgm::extPath('wine_treatment') . 'Resources/Private/Libs/tcpdf/mypdf.php');
+		$this->pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+		$this->endInitializePdf();
+	}
+
+	/**
+	 * Starts a standard PDF-document
+	 *
+	 * @return void
+	 */
+	protected function startStandardPdf() {
+		$this->startInitializePdf();
+		$this->pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+		$this->endInitializePdf();
+		$this->pdf->AddPage();
 	}
 
 	/**
@@ -40,6 +69,11 @@ abstract class Tx_WineTreatment_View_Pdf extends Tx_Extbase_MVC_View_AbstractVie
 	 */
 	protected function outputPdf($title='example.pdf') {
 		$this->pdf->lastPage();
+		$this->pdf->SetProtection(
+			array(
+				'print',
+			)
+		);
 		$this->pdf->Output($title, 'D');
 		unset($this->pdf);
 	}

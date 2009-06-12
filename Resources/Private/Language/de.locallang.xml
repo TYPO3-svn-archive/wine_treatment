@@ -17,7 +17,7 @@
 			<label index="ti_storage">Lagerung</label>
 			<label index="ti_quality">Qualität</label>
 			<label index="generate_pdf">PDF erstellen</label>
-			<label index="gvo_text">Dieses Produkt enthält keine gentechnisch veränderten Roh-, Inhaltsstoffe und Organismen gemäß VO (EG) Nr. 1829/2003 und VO (EG) Nr. 1830/2003.&lt;br&gt;&lt;br&gt;Eine Kennzeichnung gemäß der oben genannten Verordnungen besteht daher nicht.&lt;br&gt;&lt;br&gt;Der GVO-Status wird regelmäßig überprüft.</label>
+			<label index="gvo_text">Dieses Produkt enthält keine gentechnisch veränderten Roh-, Inhaltsstoffe und Organismen gemäß VO (EG) Nr. 1829/2003 und VO (EG) Nr. 1830/2003.i&lt;br /&gt;&lt;br /&gt;Eine Kennzeichnung gemäß der oben genannten Verordnungen besteht daher nicht.&lt;br /&gt;&lt;br /&gt;Der GVO-Status wird regelmäßig überprüft.</label>
 		</languageKey>
 	</data>
 </T3locallangExt>

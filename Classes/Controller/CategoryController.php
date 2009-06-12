@@ -35,12 +35,16 @@ class Tx_WineTreatment_Controller_CategoryController extends Tx_Extbase_MVC_Cont
 	 * @return string The rendered view of a single category
 	 */
 	public function showAction(Tx_WineTreatment_Domain_Model_Category $category) {
-/**
-		$GLOBALS['TSFE']->page['title'] = 'hallo';
-		$GLOBALS['TSFE']->altPageTitle = 'hallo';
-		$GLOBALS['TSFE']->indexedDocTitle = 'hallo';
-**/
 		$this->view->assign('category', $category);
+	}
+
+	/**
+	 * Shows the GVO as PDF
+	 *
+	 * @param Tx_WineTreatment_Domain_Model_Category $category The category to show
+	 * @return strung
+	 */
+	public function gvoPdfAction(Tx_WineTreatment_Domain_Model_Category $category) {
 	}
 
 }

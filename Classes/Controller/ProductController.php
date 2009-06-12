@@ -11,6 +11,11 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 	protected $productRepository;
 
 	/**
+	 * @var Tx_WineTreatment_Domain_Model_CategoryRepository
+	 */
+	protected $categoryRepository;
+
+	/**
 	 * Initializes the current action
 	 *
 	 * @return void
@@ -36,6 +41,15 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 	 * @return string
 	 */
 	public function tiPdfAction(Tx_WineTreatment_Domain_Model_Product $product) {
+	}
+
+	/**
+	 * Shows the ALG as PDF
+	 *
+	 * @param Tx_WineTreatment_Domain_Model_Product $product The product to show
+	 * @return string
+	 */
+	public function algPdfAction(Tx_WineTreatment_Domain_Model_Product $product) {
 	}
 
 	/**
@@ -65,7 +79,10 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 	 * @return string
 	 */
 	public function gvoAction(Tx_WineTreatment_Domain_Model_Product $product) {
+		$this->categoryRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Model_CategoryRepository');
+		$category = $this->categoryRepository->findByUid($product->getCategory());
 		$this->view->assign('product', $product);
+		$this->view->assign('category', $category[0]);
 	}
 
 	/**

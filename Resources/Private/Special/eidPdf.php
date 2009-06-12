@@ -16,6 +16,7 @@ $GLOBALS['TSFE']->determineId();
 $GLOBALS['TSFE']->getCompressedTCarray();
 $GLOBALS['TSFE']->initTemplate();
 $GLOBALS['TSFE']->getConfigArray();
+$GLOBALS['TSFE']->newCObj();
 
 // require dispatcher and get autoloader
 require_once (t3lib_extMgm::extPath('extbase') . 'Classes/Dispatcher.php');
