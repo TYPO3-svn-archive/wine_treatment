@@ -26,6 +26,9 @@
 			<label index="alg_directive">ALG regarding directive 2003/89/EC</label>
 			<label index="alg_alba_nothing">No ALG regarding ALBA-list</label>
 			<label index="alg_directive">ALG regarding ALBA-list</label>
+			<label index="wine">Wine</label>
+			<label index="usages">Usages</label>
+			<label index="functions">Functions</label>
 		</languageKey>
 		<languageKey index="de">EXT:wine_treatment/Resources/Private/Language/de.locallang.xml</languageKey>
 	</data>

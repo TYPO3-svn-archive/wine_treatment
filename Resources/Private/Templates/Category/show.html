@@ -35,6 +35,46 @@
 						<tr>
 							<td class="tx-winetreatment-category-show-product-description">
 								<f:format.html>{product.description}</f:format.html>
+								<table class="tx-winetreatment-category-additional">
+									<thead>
+										<tr>
+											<th><f:translate key="wine" /></th>
+											<th><f:translate key="usages" /></th>
+											<th><f:translate key="functions" /></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="wine">
+												<f:if condition="{product.wine}">
+													<f:then>
+														<f:for each="{product.wine}" as="wine">
+															<f:image src="uploads/tx_winetreatment/{wine.icon}" alt="{wine.name}" title="{wine.name}" />
+														</f:for>
+													</f:then>
+												</f:if>
+											</td>
+											<td class="usage">
+												<f:if condition="{product.usages}">
+													<f:then>
+														<f:for each="{product.usages}" as="usage">
+															<f:image src="uploads/tx_winetreatment/{usage.icon}" alt="{usage.name}" title="{usage.name}" />
+														</f:for>
+													</f:then>
+												</f:if>
+											</td>
+											<td class="function">
+												<f:if condition="{product.functions}">
+													<f:then>
+														<f:for each="{product.functions}" as="function">
+															<f:image src="uploads/tx_winetreatment/{function.icon}" alt="{function.name}" title="{function.name}" />
+														</f:for>
+													</f:then>
+												</f:if>
+											</td>
+										</tr>
+									</tbody>
+								</table>
 							</td>
 							<td>
 								<f:if condition="{product.specialInformation}">
