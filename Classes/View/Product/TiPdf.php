@@ -37,7 +37,7 @@ class Tx_WineTreatment_View_Product_TiPdf extends Tx_WineTreatment_View_Pdf {
 		$content .= $GLOBALS['TSFE']->cObj->parseFunc($this->product->getTiQuality(), array(), '< lib.parseFunc_RTE');
 		$content .= '<br />';
 		$this->pdf->PrintChapter($this->product->getName(), $content);
-		$this->outputPdf($this->product->getName() . '.pdf');
+		$this->outputPdf($this->product->getName() . '-TI.pdf');
 	}
 
 	protected function getControllerContext() {

@@ -35,7 +35,7 @@ class Tx_WineTreatment_View_Category_GvoPdf extends Tx_WineTreatment_View_Pdf {
 		$htmlcontent .= '<p>Mit freundlichen Grüßen<br />Dipl. Ing. (FH) Christian Kost</p>';
 
 		$this->pdf->writeHTML($htmlcontent, true, 0, true, 0);
-		$this->outputPdf($this->category->getName() . '.pdf');
+		$this->outputPdf($this->category->getName() . '-GVO.pdf');
 	}
 
 	protected function getControllerContext() {

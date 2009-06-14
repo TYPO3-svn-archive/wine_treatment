@@ -49,7 +49,7 @@ class Tx_WineTreatment_View_Product_AlgPdf extends Tx_WineTreatment_View_Pdf {
 		$htmlcontent .= '<p>&nbsp;</p>';
 		$htmlcontent .= '<p>Mit freundlichen Gr&uuml;ßen<br />Dipl. Ing. (FH) Christian Kost</p>';
 		$this->pdf->writeHTML($htmlcontent, true, 0, true, 0);
-		$this->outputPdf($this->product->getName() . '.pdf');
+		$this->outputPdf($this->product->getName() . '-ALG.pdf');
 	}
 
 	protected function getControllerContext() {

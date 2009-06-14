@@ -76,7 +76,7 @@
 									</tbody>
 								</table>
 							</td>
-							<td>
+							<td class="si">
 								<f:if condition="{product.specialInformation}">
 									<f:then>
 										<f:link.action action="si" controller="Product" arguments="{product : product}">
@@ -88,12 +88,12 @@
 									</f:else>
 								</f:if>
 							</td>
-							<td>
+							<td class="ti">
 								<f:link.action action="ti" controller="Product" arguments="{product : product}">
 									<f:image src="EXT:wine_treatment/Resources/Public/Images/iconTI.gif" alt="<f:translate key='technical_information' />" title="<f:translate key='technical_information' />" />
 								</f:link.action>
 							</td>
-							<td>
+							<td class="gvo">
 								<f:if condition="{product.gvo}">
 									<f:then>
 										<f:link.action action="gvo" controller="Product" arguments="{product : product}">
@@ -105,7 +105,7 @@
 									</f:else>
 								</f:if>
 							</td>
-							<td>
+							<td class="alg">
 								<f:if condition="{product.algDirective}">
 									<f:then>
 										<f:link.action action="alg" controller="Product" arguments="{product : product}">
@@ -126,7 +126,7 @@
 									</f:else>
 								</f:if>
 							</td>
-							<td>
+							<td class="sdb">
 								<f:if condition="{product.sdb}">
 									<f:then>
 										<f:link.external uri="uploads/tx_winetreatment/{product.sdb}">
