@@ -10,11 +10,11 @@ Tx_Extbase_Utility_Plugin::registerPlugin(
 	'Wine Treatment Catalogue',
 	array(
 		'Category' => 'index,show,gvoPdf',
-		'Product' => 'si,ti,gvo,alg,sdb,tiPdf,algPdf',
+		'Product' => 'si,ti,gvo,alg,sdb,tiPdf,algPdf,siPdf',
 	),
 	array(
 		'Category' => 'index,show,gvoPdf',
-		'Product' => 'si,ti,gvo,alg,sdb,tiPdf,algPdf',
+		'Product' => 'si,ti,gvo,alg,sdb,tiPdf,algPdf,siPdf',
 	)
 );
 

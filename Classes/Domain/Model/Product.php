@@ -543,7 +543,7 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	public function addSpecialInformation(Tx_WineTreatment_Domain_Model_SpecInfo $specInfo) {
-		$this->special_information[] = $specInfo;
+		$this->specialInformation[] = $specInfo;
 	}
 
 	/**
@@ -554,11 +554,11 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 */
 	public function removeSpecialInformation(Tx_WineTreatment_Domain_Model_SpecInfo $specInfoToRemove) {
 
-		foreach ($this->special_information as $key => $specInfo) {
+		foreach ($this->specialInformation as $key => $specInfo) {
 
 			if ($specInfo === $specInfoToRemove) {
-				unset($this->special_information[$key]);
-				reset($this->special_information);
+				unset($this->specialInformation[$key]);
+				reset($this->specialInformation);
 				return;
 			}
 
@@ -572,7 +572,7 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	public function removeAllSpecialInformation() {
-		$this->special_information = array();
+		$this->specialInformation = array();
 	}
 
 	/**
@@ -581,7 +581,7 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 * @return array of Tx_WineTreatment_Domain_Model_SpecInfo
 	 */
 	public function getSpecialInformation() {
-		return $this->special_information;
+		return $this->specialInformation;
 	}
 
 	/**
@@ -592,8 +592,8 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 */
 	public function findSpecialInformationByUid($uid) {
 
-		if (array_key_exists($uid, $this->special_information)) {
-			return $this->special_information[$uid];
+		if (array_key_exists($uid, $this->specialInformation)) {
+			return $this->specialInformation[$uid];
 		} else {
 			return NULL;
 		}

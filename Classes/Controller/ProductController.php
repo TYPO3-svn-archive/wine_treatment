@@ -35,6 +35,15 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 	}
 
 	/**
+	 * Shows the Si as PDF
+	 *
+	 * @param Tx_WineTreatment_Domain_Model_Product $product The product to show
+	 * @return string
+	 */
+	public function siPdfAction(Tx_WineTreatment_Domain_Model_Product $product) {
+	}
+
+	/**
 	 * Shows the Ti as PDF
 	 *
 	 * @param Tx_WineTreatment_Domain_Model_Product $product The product to show
@@ -59,7 +68,10 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 	 * @return string
 	 */
 	public function siAction(Tx_WineTreatment_Domain_Model_Product $product) {
+		$this->categoryRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Model_CategoryRepository');
+		$category = $this->categoryRepository->findByUid($product->getCategory());
 		$this->view->assign('product', $product);
+		$this->view->assign('category', $category[0]);
 	}
 
 	/**
