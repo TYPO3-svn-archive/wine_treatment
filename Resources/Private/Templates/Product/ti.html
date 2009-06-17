@@ -1,4 +1,5 @@
 <div class="tx-winetreatment-product">
+	<p class="tx-winetreatment-breadcrumb"><f:link.action action="show" controller="Category" arguments="{category : category}">{category.name}</f:link.action></p>
 	<p class="tx-winetreatment-product-title"><f:translate key="technical_information" /></p>
 	<p class="tx-winetreatment-product-name">{product.name}&nbsp;
 		<f:link.action action="tiPdf" arguments="{product : product}" additionalParams="{eID : 'pdf'}">

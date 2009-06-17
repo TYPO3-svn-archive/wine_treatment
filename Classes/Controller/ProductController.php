@@ -69,7 +69,10 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 	 * @return string
 	 */
 	public function tiAction(Tx_WineTreatment_Domain_Model_Product $product) {
+		$this->categoryRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Model_CategoryRepository');
+		$category = $this->categoryRepository->findByUid($product->getCategory());
 		$this->view->assign('product', $product);
+		$this->view->assign('category', $category[0]);
 	}
 
 	/**
@@ -92,7 +95,10 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 	 * @return string
 	 */
 	public function algAction(Tx_WineTreatment_Domain_Model_Product $product) {
+		$this->categoryRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Model_CategoryRepository');
+		$category = $this->categoryRepository->findByUid($product->getCategory());
 		$this->view->assign('product', $product);
+		$this->view->assign('category', $category[0]);
 	}
 
 	/**
