@@ -13,7 +13,7 @@ abstract class Tx_WineTreatment_View_Pdf extends Tx_Extbase_MVC_View_AbstractVie
 	 * @return void
 	 */
 	protected function startInitializePdf() {
-		require_once(t3lib_extMgm::extPath('wine_treatment') . 'Resources/Private/Libs/tcpdf/tcpdf.php');
+		require_once(t3lib_extMgm::extPath('wine_treatment') . 'Resources/Private/PHP/tcpdf/tcpdf.php');
 	}
 
 	/**
@@ -44,8 +44,8 @@ abstract class Tx_WineTreatment_View_Pdf extends Tx_Extbase_MVC_View_AbstractVie
 	 */
 	protected function startColumnPdf() {
 		$this->startInitializePdf();
-		require_once(t3lib_extMgm::extPath('wine_treatment') . 'Resources/Private/Libs/tcpdf/mypdf.php');
-		$this->pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+		require_once(t3lib_extMgm::extPath('wine_treatment') . 'Resources/Private/PHP/tcpdf/twocolumnspdf.php');
+		$this->pdf = new TWOCOLUMNSPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 		$this->endInitializePdf();
 	}
 

@@ -4,7 +4,7 @@ if (!defined('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-$TYPO3_CONF_VARS['FE']['eID_include']['pdf'] = 'EXT:wine_treatment/Resources/Private/Special/eidPdf.php';
+$TYPO3_CONF_VARS['FE']['eID_include']['pdf'] = 'EXT:wine_treatment/Resources/Private/PHP/eidPdf.php';
 
 t3lib_extMgm::addPageTSConfig('
 
