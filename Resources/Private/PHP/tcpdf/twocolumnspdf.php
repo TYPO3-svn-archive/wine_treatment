@@ -1,6 +1,6 @@
 <?php
 
-class MYPDF extends TCPDF {
+class TWOCOLUMNSPDF extends TCPDF {
 	
 	//number of colums
 	protected $ncols = 2;
