@@ -2,7 +2,7 @@
 	<p class="tx-winetreatment-breadcrumb"><f:link.action action="show" controller="Category" arguments="{category : category}">{category.name}</f:link.action></p>
 	<p class="tx-winetreatment-product-title"><f:translate key="gvo" /></p>
 	<p class="tx-winetreatment-product-name">{product.name}&nbsp;
-		<f:link.action controller="Category" action="gvoPdf" arguments="{category : category}" additionalParams="{eID : 'pdf'}">
+		<f:link.action controller="Category" action="gvoPdf" arguments="{category : category}" pageType="123">
 			<f:image src="EXT:wine_treatment/Resources/Public/Images/pdf.gif" alt="PDF" title="<f:translate key='generate_pdf' />" />
 		</f:link.action>
 	</p>

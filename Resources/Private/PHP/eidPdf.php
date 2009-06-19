@@ -25,4 +25,3 @@ spl_autoload_register(array('Tx_Extbase_Dispatcher', 'autoloadClass'));
 // create dispatcher and dispatch
 $eid_dispatcher = t3lib_div::makeInstance('Tx_Extbase_Dispatcher');
 echo $eid_dispatcher->dispatch('', $GLOBALS['TSFE']->tmpl->setup['tt_content.']['list.']['20.']['winetreatment_pi1.']);
-

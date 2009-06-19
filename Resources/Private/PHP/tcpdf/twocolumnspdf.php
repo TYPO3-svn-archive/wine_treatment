@@ -58,7 +58,7 @@ class TWOCOLUMNSPDF extends TCPDF {
 	
 	// Set chapter title
 	public function ChapterTitle($label) {
-		$this->SetFont('helvetica', '', 14);
+		$this->SetFont('arialunicid0', '', 14);
 		$this->SetFillColor(200, 220, 255);
 		$this->Cell(0, 6, $label, 0, 1, '', 1);
 		$this->Ln(4);
@@ -75,7 +75,7 @@ class TWOCOLUMNSPDF extends TCPDF {
 //		$txt = file_get_contents($file, false);
 		$txt = $text;
 		// Font
-		$this->SetFont('times', '', 9);
+		$this->SetFont('arialunicid0', '', 9);
 		// Output text in a column
 		$this->MultiCell($this->colwidth, 5, $txt, 0, 'J', 0, 1, '', '', true, 0, html);
 		$this->Ln();
