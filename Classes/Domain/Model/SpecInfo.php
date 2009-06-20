@@ -9,6 +9,11 @@
 class Tx_WineTreatment_Domain_Model_SpecInfo extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
+	 * @var int
+	 */
+	protected $tstamp;
+
+	/**
 	 * @var int The uid of the product the specinfo is related to
 	 */
 	protected $product;
@@ -24,6 +29,25 @@ class Tx_WineTreatment_Domain_Model_SpecInfo extends Tx_Extbase_DomainObject_Abs
 	 * @return
 	 */
 	public function __construct() {
+	}
+
+	/**
+	 * Sets the time, when specinfo was last altered
+	 *
+	 * @param int $tstamp
+	 * @return void
+	 */
+	public function setTstamp($tstamp) {
+		$this->tstamp = $tstamp;
+	}
+
+	/**
+	 * Gets the time, when specinfo was last altered
+	 *
+	 * @return int The alter-date
+	 */
+	public function getTstamp() {
+		return $this->tstamp;
 	}
 
 	/**

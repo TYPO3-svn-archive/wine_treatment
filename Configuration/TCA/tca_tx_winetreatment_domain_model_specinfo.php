@@ -7,7 +7,7 @@ if (!defined('TYPO3_MODE')) {
 $GLOBALS['TCA']['tx_winetreatment_domain_model_specinfo'] = array(
 	'ctrl' => $GLOBALS['TCA']['tx_winetreatment_domain_model_specinfo']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'hidden,information,product',
+		'showRecordFieldList' => 'hidden,tstamp,information,product',
 	),
 	'feInterface' => $GLOBALS['TCA']['tx_winetreatment_domain_model_specinfo']['feInterface'],
 	'columns' => array(
@@ -66,6 +66,15 @@ $GLOBALS['TCA']['tx_winetreatment_domain_model_specinfo'] = array(
 				'default' => 0,
 			),
 		),
+		'tstamp' => array(
+			'label' => 'LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tstamp',
+			'config' => array(
+				'type' => 'input',
+				'size' => 20,
+				'max' => 20,
+				'eval' => 'datetime',
+			),
+		),
 		'information' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tx_winetreatment_domain_model_specinfo.information',
@@ -94,7 +103,7 @@ $GLOBALS['TCA']['tx_winetreatment_domain_model_specinfo'] = array(
 	),
 	'types' => array(
 		0 => array(
-			'showitem' => 'hidden;;1, information;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_winetreatment/rte/]'
+			'showitem' => 'hidden;;1, tstamp, information;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_winetreatment/rte/]'
 		),
 	),
 	'palettes' => array(
