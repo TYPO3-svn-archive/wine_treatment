@@ -12,7 +12,8 @@ class Tx_WineTreatment_View_Category_GvoPdf extends Tx_WineTreatment_View_Pdf {
 	public function render() {
 		$this->startStandardPdf();
 		$this->pdf->SetTitle($this->category->getName());
-		$this->pdf->SetSubject('Allergen-Informationen für ' . $this->category->getName());
+		$this->pdf->SetSubject('GVO-Informationen für ' . $this->category->getName());
+		$this->pdf->writeHeadline('Information zum GVO-Status: ' . $this->category->getName());
 		$htmlcontent = '<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>';
 		$htmlcontent .= '<p>Sehr geehrte Damen und Herren,</p>';
 		$htmlcontent .= '<p>&nbsp;</p>';
@@ -30,11 +31,10 @@ class Tx_WineTreatment_View_Category_GvoPdf extends Tx_WineTreatment_View_Pdf {
 
 		$htmlcontent .= '</ul>';
 		$htmlcontent .= '<p>&nbsp;</p>';
-		$htmlcontent .= '<p>Eine Kennzeichnung gemäß der oben genannten Verordnungen besteht daher nicht. Diese Bescheinigung ist bis zum ' . $this->category->getGvoValid()->format('d.m.Y') . ' gültig. Wir überprüfen den GVO-Sstatus unsere Produkte regelmäßig.</p>';
-		$htmlcontent .= '<p>&nbsp;</p>';
-		$htmlcontent .= '<p>Mit freundlichen Grüßen<br />Dipl. Ing. (FH) Christian Kost</p>';
+		$htmlcontent .= '<p>Eine Kennzeichnung gemäß der oben genannten Verordnungen besteht daher nicht. Diese Bescheinigung ist bis zum ' . $this->category->getGvoValid()->format('d.m.Y') . ' gültig. Wir überprüfen den GVO-Status unserer Produkte regelmäßig.</p>';
 
 		$this->pdf->writeHTML($htmlcontent, true, 0, true, 0);
+		$this->pdf->setFooterText('Copyright &copy; 2009 by ZEF&Uuml;G GdbR. Alle Rechte vorbehalten.<br /><br />' . $this->category->getTstamp()->format('d.m.Y'));
 		$this->outputPdf($this->category->getName() . '-GVO.pdf');
 	}
 

@@ -9,6 +9,13 @@
 class Tx_WineTreatment_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
+	 * Modification date
+	 *
+	 * @var int
+	 */
+	protected $tstamp;
+
+	/**
 	 * The category name
 	 *
 	 * @var string
@@ -42,6 +49,25 @@ class Tx_WineTreatment_Domain_Model_Category extends Tx_Extbase_DomainObject_Abs
 	 * @return
 	 */
 	public function __construct() {
+	}
+
+	/**
+	 * Gets the modification date
+	 *
+	 * @return int
+	 */
+	public function getTstamp() {
+		return $this->tstamp;
+	}
+
+	/**
+	 * Sets the modification date
+	 *
+	 * @param int $tstamp
+	 * @return void
+	 */
+	public function setTstamp($tstamp) {
+		$this->tstamp = $tstamp;
 	}
 
 	/**

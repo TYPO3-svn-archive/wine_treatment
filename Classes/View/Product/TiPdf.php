@@ -13,10 +13,8 @@ class Tx_WineTreatment_View_Product_TiPdf extends Tx_WineTreatment_View_Pdf {
 		$this->startColumnPdf();
 		$this->pdf->SetTitle($this->product->getName());
 		$this->pdf->SetSubject('Technische Information für ' . $this->product->getName());
-//		$htmlcontent = '<h1>' . $this->product->getName() . '</h1>';
-//		$this->pdf->writeHTML($htmlcontent, true, 0, true, 0);
-		$content = '<h2>Produkt</h2>';
-		$content .= $GLOBALS['TSFE']->cObj->parseFunc($this->product->getDescription(), array(), '< lib.parseFunc_RTE');
+		$this->pdf->writeHeadline('Technische Information: ' . $this->product->getName());
+		$content = $GLOBALS['TSFE']->cObj->parseFunc($this->product->getDescription(), array(), '< lib.parseFunc_RTE');
 		$content .= '<br />';
 		$content .= '<h2>Anwendung</h2>';
 		$content .= $GLOBALS['TSFE']->cObj->parseFunc($this->product->getTiUsage(), array(), '< lib.parseFunc_RTE');
@@ -36,7 +34,8 @@ class Tx_WineTreatment_View_Product_TiPdf extends Tx_WineTreatment_View_Pdf {
 		$content .= '<h2>Qualit&auml;t</h2>';
 		$content .= $GLOBALS['TSFE']->cObj->parseFunc($this->product->getTiQuality(), array(), '< lib.parseFunc_RTE');
 		$content .= '<br />';
-		$this->pdf->PrintChapter($this->product->getName(), $content);
+		$this->pdf->writeColumns($content);
+		$this->pdf->setFooterText('Copyright &copy; 2009 by ZEF&Uuml;G GdbR. Alle Rechte vorbehalten.<br /><br />Version: ' . (string)$this->product->getTiVersion() . '&nbsp;&nbsp;' . $this->product->getTstamp()->format('d.m.Y'));
 		$this->outputPdf($this->product->getName() . '-TI.pdf');
 	}
 

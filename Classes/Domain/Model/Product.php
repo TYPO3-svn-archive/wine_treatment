@@ -486,7 +486,7 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	public function setAlgVersion($algVersion) {
-		$this->alg_version = $algVersion;
+		$this->algVersion = $algVersion;
 	}
 
 	/**
@@ -495,7 +495,7 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 * @return double
 	 */
 	public function getAlgVersion() {
-		return $this->alg_version;
+		return $this->algVersion;
 	}
 
 	/**
