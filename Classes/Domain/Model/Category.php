@@ -134,7 +134,7 @@ class Tx_WineTreatment_Domain_Model_Category extends Tx_Extbase_DomainObject_Abs
 	 * @return void
 	 */
 	public function addProduct(Tx_WineTreatment_Domain_Model_Product $product) {
-		$this->products[] = $products;
+		$this->products[] = $product;
 	}
 
 	/**
