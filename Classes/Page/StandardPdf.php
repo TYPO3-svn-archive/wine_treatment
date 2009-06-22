@@ -25,11 +25,11 @@ class Tx_WineTreatment_Page_StandardPdf extends TCPDF {
 	}
 
 	public function writeHeadline($text) {
-		$this->SetY(45);
+		$this->SetY(50);
 		$this->writeHTML('<h1>' . $text . '</h1>', true, 0, false, true, 'C');
-		$this->SetY(55);
+		$this->SetY(60);
 		$this->specialLine();
-		$this->SetY(65);
+		$this->SetY(70);
 	}
 
 	public function Header() {
@@ -51,7 +51,7 @@ class Tx_WineTreatment_Page_StandardPdf extends TCPDF {
 		$this->SetTextColor(0, 0, 0);
 		$this->SetFont($headerfont[0], $headerfont[1], $headerfont[2]);
 		$this->SetX($header_x);
-		$this->MultiCell(0, $cell_height, $headerdata['string'], 0, '', 0, 1, '', '', true, 0, false);
+		$this->MultiCell(0, $cell_height + 20, $headerdata['string'], 0, '', 0, 1, '', '', true, 0, false);
 		$this->SetY((8 / $this->getScaleFactor()) + max($imgy, $this->GetY()));
 		$this->specialLine();
 	}
