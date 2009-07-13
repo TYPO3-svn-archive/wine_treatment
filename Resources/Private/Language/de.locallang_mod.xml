@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallangExt>
+	<data type="array">
+		<languageKey index="de" type="array">
+			<label index="mlang_tabs_tab">Weinbehandlung</label>
+			<label index="mlang_labels_tabdescr">Anzeigen/Bearbeiten von Weinbehandlung</label>
+		</languageKey>
+	</data>
+</T3locallangExt>
