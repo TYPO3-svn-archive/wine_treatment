@@ -69,9 +69,9 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 	 */
 	public function siAction(Tx_WineTreatment_Domain_Model_Product $product) {
 		$this->categoryRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Model_CategoryRepository');
-		$category = $this->categoryRepository->findByUid($product->getCategory());
+		$category = $this->categoryRepository->findByUid((int)$product->getCategory());
 		$this->view->assign('product', $product);
-		$this->view->assign('category', $category[0]);
+		$this->view->assign('category', $category);
 	}
 
 	/**
@@ -82,9 +82,9 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 	 */
 	public function tiAction(Tx_WineTreatment_Domain_Model_Product $product) {
 		$this->categoryRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Model_CategoryRepository');
-		$category = $this->categoryRepository->findByUid($product->getCategory());
+		$category = $this->categoryRepository->findByUid((int)$product->getCategory());
 		$this->view->assign('product', $product);
-		$this->view->assign('category', $category[0]);
+		$this->view->assign('category', $category);
 	}
 
 	/**
@@ -95,9 +95,9 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 	 */
 	public function gvoAction(Tx_WineTreatment_Domain_Model_Product $product) {
 		$this->categoryRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Model_CategoryRepository');
-		$category = $this->categoryRepository->findByUid($product->getCategory());
+		$category = $this->categoryRepository->findByUid((int)$product->getCategory());
 		$this->view->assign('product', $product);
-		$this->view->assign('category', $category[0]);
+		$this->view->assign('category', $category);
 	}
 
 	/**
@@ -108,9 +108,9 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 	 */
 	public function algAction(Tx_WineTreatment_Domain_Model_Product $product) {
 		$this->categoryRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Model_CategoryRepository');
-		$category = $this->categoryRepository->findByUid($product->getCategory());
+		$category = $this->categoryRepository->findByUid((int)$product->getCategory());
 		$this->view->assign('product', $product);
-		$this->view->assign('category', $category[0]);
+		$this->view->assign('category', $category);
 	}
 
 	/**

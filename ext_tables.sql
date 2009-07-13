@@ -223,7 +223,7 @@ CREATE TABLE tx_winetreatment_domain_model_category (
 CREATE TABLE tx_winetreatment_product_wine_mm (
 	uid_local int(11) DEFAULT '0' NOT NULL,
 	uid_foreign int(11) DEFAULT '0' NOT NULL,
-	tablenames varchar(30) DEFAULT '' NOT NULL,
+	tablenames tinytext,
 	sorting int(11) DEFAULT '0' NOT NULL,
 
 	KEY uid_locali (uid_local),
@@ -236,7 +236,7 @@ CREATE TABLE tx_winetreatment_product_wine_mm (
 CREATE TABLE tx_winetreatment_product_usage_mm (
 	uid_local int(11) DEFAULT '0' NOT NULL,
 	uid_foreign int(11) DEFAULT '0' NOT NULL,
-	tablenames varchar(30) DEFAULT '' NOT NULL,
+	tablenames tinytext,
 	sorting int(11) DEFAULT '0' NOT NULL,
 
 	KEY uid_locali (uid_local),
@@ -249,7 +249,7 @@ CREATE TABLE tx_winetreatment_product_usage_mm (
 CREATE TABLE tx_winetreatment_product_function_mm (
 	uid_local int(11) DEFAULT '0' NOT NULL,
 	uid_foreign int(11) DEFAULT '0' NOT NULL,
-	tablenames varchar(30) DEFAULT '' NOT NULL,
+	tablenames tinytext,
 	sorting int(11) DEFAULT '0' NOT NULL,
 
 	KEY uid_locali (uid_local),

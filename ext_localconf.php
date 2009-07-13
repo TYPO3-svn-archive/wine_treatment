@@ -4,7 +4,22 @@ if (!defined('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
+Tx_Extbase_Utility_Plugin::registerPlugin(
+	'WineTreatment',
+	'Pi1',
+	'Wine Treatment Catalogue',
+	array(
+		'Category' => 'index,show,gvoPdf',
+		'Product' => 'si,ti,gvo,alg,sdb,tiPdf,algPdf,siPdf',
+	),
+	array(
+		'Category' => 'index,show,gvoPdf',
+		'Product' => 'si,ti,gvo,alg,sdb,tiPdf,algPdf,siPdf',
+	)
+);
+
 $TYPO3_CONF_VARS['FE']['eID_include']['pdf'] = 'EXT:wine_treatment/Resources/Private/PHP/eidPdf.php';
+$TYPO3_CONF_VARS['BE']['AJAX']['tx_winetreatment::controller'] = t3lib_extMgm::extPath($_EXTKEY) . 'Classes/Controller/ModuleAjax.php:Tx_WineTreatment_Controller_ModuleAjax->init';
 
 t3lib_extMgm::addPageTSConfig('
 

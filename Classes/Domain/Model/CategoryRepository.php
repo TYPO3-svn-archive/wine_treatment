@@ -26,5 +26,13 @@ class Tx_WineTreatment_Domain_Model_CategoryRepository extends Tx_Extbase_Persis
 
 	}
 
+	public function getOrdered() {
+		$query = $this->createQuery();
+		$query->setOrderings(array('name' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING));
+		$result = $query->execute();
+		$this->persistenceManager->getSession()->registerReconstitutedObjects($result);
+		return $result;
+	}
+
 }
 

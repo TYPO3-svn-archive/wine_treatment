@@ -111,7 +111,7 @@ $GLOBALS['TCA']['tx_winetreatment_domain_model_category'] = array(
 				'default' => 0
 			),
 		),
-		'products' => array(
+ 		'products' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tx_winetreatment_domain_model_product',
 			'config' => array(
@@ -127,6 +127,47 @@ $GLOBALS['TCA']['tx_winetreatment_domain_model_category'] = array(
 				'foreign_field' => 'category',
 			),
 		),
+/**
+		'products' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tx_winetreatment_domain_model_product',
+			'config' => array(
+				'type' => 'select',
+				'foreign_table' => 'tx_winetreatment_domain_model_product',
+				'foreign_class' => 'Tx_WineTreatment_Domain_Model_Product',
+				'foreign_table_where' => ' AND ###THIS_UID### = tx_winetreatment_domain_model_product.category order by tx_winetreatment_domain_model_product.name',
+				'MM' => 'tx_winetreatment_category_product_mm',
+				'size' => 5,
+				'minitems' => 0,
+				'maxitems' => 99,
+				'wizards' => array(
+					'_PADDING' => 3,
+					'_VERTICAL' => 1,
+					'_POSITION' => 'left',
+					'edit' => array(
+						'type' => 'popup',
+						'title' => 'Auswahl bearbeiten',
+						'script' => 'wizard_edit.php',
+						'popup_onlyOpenIfSelected' => 1,
+						'icon' => 'edit2.gif',
+						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1'
+					),
+					'add' => array(
+						'type' => 'script',
+						'title' => 'neues Produkt anlegen',
+						'icon' => 'add.gif',
+						'script' => 'wizard_add.php',
+						'params' => array(
+							'table' => 'tx_winetreatment_domain_model_product',
+							'pid' => '###CURRENT_PID###',
+							'category' => '###THIS_UID###',
+							'setValue' => 'prepend',
+						),
+					),
+				),
+			),
+		),
+**/
 	),
 	'types' => array(
 		0 => array(

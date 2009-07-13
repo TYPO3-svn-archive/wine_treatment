@@ -147,20 +147,16 @@ $GLOBALS['TCA']['tx_winetreatment_domain_model_category'] = array(
 	),
 );
 
-/**
-
 if (TYPO3_MODE == 'BE') {
 	t3lib_extMgm::addModulePath(
 		'web_txwinetreatmentM1',
-		t3lib_extMgm::extPath($_EXTKEY) . 'Module/'
+		t3lib_extMgm::extPath($_EXTKEY) . 'Module/CategoryModule/'
 	);
 	t3lib_extMgm::addModule(
 		'web',
 		'txwinetreatmentM1',
 		'',
-		t3lib_extMgm::extPath($_EXTKEY) . 'Module/'
+		t3lib_extMgm::extPath($_EXTKEY) . 'Module/CategoryModule/'
 	);
 }
 	
-**/
-
