@@ -157,6 +157,7 @@ CREATE TABLE tx_winetreatment_domain_model_product (
 
 	name varchar(200) DEFAULT '0' NOT NULL,
 	description text,
+	url tinytext,
 	special_information int(11) DEFAULT '0' NOT NULL,
 	ti_usage text,
 	ti_dosage text,
@@ -164,8 +165,10 @@ CREATE TABLE tx_winetreatment_domain_model_product (
 	ti_special text,
 	ti_storage text,
 	ti_quality text,
+	ti_pdf text,
 	ti_version double(11,2) DEFAULT '0.00' NOT NULL,
 	gvo tinyint(3) DEFAULT '0' NOT NULL,
+	bio text,
 	alg_directive int(11) DEFAULT '0' NOT NULL,
 	alg_directive_text text,
 	alg_alba int(11) DEFAULT '0' NOT NULL,

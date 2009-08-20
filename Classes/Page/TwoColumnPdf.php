@@ -51,7 +51,7 @@ class Tx_WineTreatment_Page_TwoColumnPdf extends Tx_WineTreatment_Page_StandardP
 		$this->y0 = $this->GetY();
 		$lMargin = $this->lMargin;
 		$rMargin = $this->rMargin;
-		$this->SetFont('arialunicid0', '', 9);
+		$this->SetFont('helvetica', '', 9);
 		$this->MultiCell($this->colwidth, 5, $text, 0, 'J', 0, 1, $this->GetX(), $this->GetY(), true, 0, true);
 		$this->Ln();
 		$this->SetCol(0);

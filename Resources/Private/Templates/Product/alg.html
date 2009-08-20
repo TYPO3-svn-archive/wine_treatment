@@ -12,17 +12,15 @@
 	<div class="tx-winetreatment-product-alg">
 		<f:if condition="{product.algDirective} == 0">
 			<f:then>
-<strong>Directive 2003/89/EC:</strong><br />
-!!! NIX !!! MMMMMMMMMMMHHHHHHHH<br />
 			</f:then>
 			<f:else>
+				<strong>Enthaltene Allergene nach der Direktive 2003/89/EC:</strong><br />
 				<f:if condition="{product.algDirective} == 1">
 					<f:then>
-<strong>Keine Allergene nach der Direktive 2003/89/EC.</strong><br />
+						Keine<br />
 					</f:then>
 					<f:else>
-<strong>Enthaltene Allergene nach der Direktive 2003/89/EC:</strong><br />
-<f:format.html>{product.algDirectiveText}</f:format.html>
+						<f:format.html>{product.algDirectiveText}</f:format.html>
 					</f:else>
 				</f:if>
 			</f:else>
@@ -30,20 +28,20 @@
 <br />
 		<f:if condition="{product.algAlba} == 0">
 			<f:then>
-<strong>ALBA-Liste:</strong><br />
-!!! NIX !!! MMMMMMMMMMMHHHHHHHH<br />
 			</f:then>
 			<f:else>
+				<strong>Enthaltene Allergene nach der ALBA-Liste:</strong><br />
 				<f:if condition="{product.algAlba} == 1">
 					<f:then>
-<strong>Keine Allergene nach der ALBA-Liste.</strong><br />
+						Keine<br />
 					</f:then>
 					<f:else>
-<strong>Enthaltene Allergene nach der ALBA-Liste:</strong><br />
-<f:format.html>{product.algAlbaText}</f:format.html>
+						<f:format.html>{product.algAlbaText}</f:format.html>
 					</f:else>
 				</f:if>
 			</f:else>
 		</f:if>
+		<p>&nbsp;</p>
+		<p><strong>Version:</strong> <f:format.number decimals="1">{product.algVersion}</f:format.number></p>
 	</div>
 </div>

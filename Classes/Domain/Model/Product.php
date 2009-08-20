@@ -37,6 +37,13 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	protected $description = '';
 
 	/**
+	 * An URL
+	 *
+	 * @var string
+	 */
+	protected $url = '';
+
+	/**
 	 * The uid of the category
 	 *
 	 * @var int
@@ -56,6 +63,13 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 * @var int
 	 */
 	protected $gvo = 0;
+
+	/**
+	 * The gvo bio pdf
+	 *
+	 * @var string
+	 */
+	protected $bio = '';
 
 	/**
 	 * The security datasheet
@@ -163,6 +177,13 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	protected $tiQuality = '';
 
 	/**
+	 * The TI PDF
+	 *
+	 * @var string
+	 */
+	protected $tiPdf = '';
+
+	/**
 	 * The TI version
 	 *
 	 * @var double
@@ -249,6 +270,25 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 */
 	public function getDescription() {
 		return $this->description;
+	}
+
+	/**
+	 * Sets the URL
+	 *
+	 * @param string $url
+	 * @return void
+	 */
+	public function setUrl($url) {
+		$this->url = $url;
+	}
+
+	/**
+	 * Gets the URL
+	 *
+	 * @return string
+	 */
+	public function getUrl() {
+		return $this->url;
 	}
 
 	/**
@@ -366,6 +406,25 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	}
 
 	/**
+	 * Sets the TI PDF
+	 *
+	 * @param string $tiPdf
+	 * @return void
+	 */
+	public function setTiPdf($tiPdf) {
+		$this->tiPdf = $tiPdf;
+	}
+
+	/**
+	 * Gets the TI PDF
+	 *
+	 * @return string
+	 */
+	public function getTiPdf() {
+		return $this->tiPdf;
+	}
+
+	/**
 	 * Sets the TI Version
 	 *
 	 * @param double $tiVersion
@@ -401,6 +460,25 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 */
 	public function getGvo() {
 		return (bool)$this->gvo;
+	}
+
+	/**
+	 * Sets the GVO Bio PDF
+	 *
+	 * @param string $bio
+	 * @return void
+	 */
+	public function setBio($bio) {
+		$this->bio = $bio;
+	}
+
+	/**
+	 * Gets the GVO Bio PDF
+	 *
+	 * @return string
+	 */
+	public function getBio() {
+		return $this->bio;
 	}
 
 	/**

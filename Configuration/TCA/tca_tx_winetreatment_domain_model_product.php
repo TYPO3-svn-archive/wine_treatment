@@ -7,7 +7,7 @@ if (!defined('TYPO3_MODE')) {
 $GLOBALS['TCA']['tx_winetreatment_domain_model_product'] = array(
 	'ctrl' => $GLOBALS['TCA']['tx_winetreatment_domain_model_product']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'hidden,name,description,special_information,ti_usage,ti_dosage,ti_property,ti_special,ti_storage,ti_quality,ti_version,gvo,alg_directive,alg_directive_text,alg_alba,alg_alba_text,alg_version,sdb,wine,usages,functions,category',
+		'showRecordFieldList' => 'hidden,name,description,url,special_information,ti_usage,ti_dosage,ti_property,ti_special,ti_storage,ti_quality,ti_pdf,ti_version,gvo,bio,alg_directive,alg_directive_text,alg_alba,alg_alba_text,alg_version,sdb,wine,usages,functions,category',
 		'maxDBListItems' => 50,
 		'maxSingleDBListItems' => 50,
 	),
@@ -94,6 +94,27 @@ $GLOBALS['TCA']['tx_winetreatment_domain_model_product'] = array(
 						'title' => 'Full screen Rich Text Editing',
 						'icon' => 'wizard_rte2.gif',
 						'script' => 'wizard_rte.php',
+					),
+				),
+			),
+		),
+		'url' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tx_winetreatment_domain_model_product.url',
+			'config' => array(
+				'type' => 'input',
+				'size' => 15,
+				'max' => 255,
+				'checkbox' => '',
+				'eval' => 'trim',
+				'wizards' => array(
+					'_PADDING' => 2,
+					'link' => array(
+						'type' => 'popup',
+						'title' => 'Link',
+						'icon' => 'link_popup.gif',
+						'script' => 'browse_links.php?mode=wizard',
+						'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1',
 					),
 				),
 			),
@@ -234,6 +255,20 @@ $GLOBALS['TCA']['tx_winetreatment_domain_model_product'] = array(
 				),
 			),
 		),
+		'ti_pdf' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tx_winetreatment_domain_model_product.ti_pdf',
+			'config' => array(
+				'type' => 'group',
+				'internal_type' => 'file',
+				'allowed' => 'pdf',
+				'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
+				'uploadfolder' => 'uploads/tx_winetreatment',
+				'size' => 1,
+				'minitems' => 0,
+				'maxitems' => 1,
+			),
+		),
 		'ti_version' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tx_winetreatment_domain_model_product.ti_version',
@@ -250,6 +285,20 @@ $GLOBALS['TCA']['tx_winetreatment_domain_model_product'] = array(
 			'label' => 'LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tx_winetreatment_domain_model_product.gvo',
 			'config' => array(
 				'type' => 'check',
+			),
+		),
+		'bio' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tx_winetreatment_domain_model_product.bio',
+			'config' => array(
+				'type' => 'group',
+				'internal_type' => 'file_reference',
+				'allowed' => 'pdf',
+				'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
+				'uploadfolder' => 'uploads/tx_winetreatment',
+				'size' => 1,
+				'minitems' => 0,
+				'maxitems' => 1,
 			),
 		),
 		'alg_directive' => array(
@@ -350,7 +399,7 @@ $GLOBALS['TCA']['tx_winetreatment_domain_model_product'] = array(
 			'label' => 'LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tx_winetreatment_domain_model_product.sdb',
 			'config' => array(
 				'type' => 'group',
-				'internal_type' => 'file',
+				'internal_type' => 'file_reference',
 				'allowed' => 'pdf',
 				'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
 				'uploadfolder' => 'uploads/tx_winetreatment',
@@ -410,7 +459,7 @@ $GLOBALS['TCA']['tx_winetreatment_domain_model_product'] = array(
 	),
 	'types' => array(
 		0 => array(
-			'showitem' => '--div--;LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tab_general,hidden;;1, name, description;;;richtext[]:rte_transform[mode=ts_css:imgpath=uploads/tx_winetreatment/rte/], --div--;LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tx_winetreatment_domain_model_specinfo,special_information, --div--;LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tab_techinfo,ti_usage;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_winetreatment/rte/], ti_dosage;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_winetreatment/rte/], ti_property;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_winetreatment/rte/], ti_special;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_winetreatment/rte/], ti_storage;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_winetreatment/rte/], ti_quality;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_winetreatment/rte/], ti_version, --div--;LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tab_alg, alg_directive, alg_directive_text;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_winetreatment/rte/], alg_alba, alg_alba_text;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_winetreatment/rte/], alg_version, --div--;LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tab_association, wine, usages, functions, --div--;LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tab_other, gvo, sdb',
+			'showitem' => '--div--;LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tab_general,hidden;;1, name, description;;;richtext[]:rte_transform[mode=ts_css:imgpath=uploads/tx_winetreatment/rte/], url, --div--;LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tx_winetreatment_domain_model_specinfo,special_information, --div--;LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tab_techinfo,ti_usage;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_winetreatment/rte/], ti_dosage;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_winetreatment/rte/], ti_property;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_winetreatment/rte/], ti_special;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_winetreatment/rte/], ti_storage;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_winetreatment/rte/], ti_quality;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_winetreatment/rte/], ti_pdf, ti_version, --div--;LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tab_alg, alg_directive, alg_directive_text;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_winetreatment/rte/], alg_alba, alg_alba_text;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_winetreatment/rte/], alg_version, --div--;LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tab_association, wine, usages, functions, --div--;LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tab_other, gvo, bio, sdb',
 		),
 	),
 	'palettes' => array(

@@ -175,7 +175,8 @@ if (!defined('K_TCPDF_EXTERNAL_CONFIG')) {
 	/**
 	 * default main font name
 	 */
-	define ('PDF_FONT_NAME_MAIN', 'arialunicid0');
+// JoSct	define ('PDF_FONT_NAME_MAIN', 'arialunicid0');
+	define ('PDF_FONT_NAME_MAIN', 'helvetica');
 	
 	/**
 	 * default main font size
@@ -185,7 +186,8 @@ if (!defined('K_TCPDF_EXTERNAL_CONFIG')) {
 	/**
 	 * default data font name
 	 */
-	define ('PDF_FONT_NAME_DATA', 'arialunicid0');
+// JoSct	define ('PDF_FONT_NAME_DATA', 'arialunicid0');
+	define ('PDF_FONT_NAME_DATA', 'helvetica');
 	
 	/**
 	 * default data font size

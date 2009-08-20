@@ -6,12 +6,12 @@
 class Tx_WineTreatment_Controller_CategoryController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
-	 * @var Tx_WineTreatment_Domain_Model_CategoryRepository
+	 * @var Tx_WineTreatment_Domain_Repository_CategoryRepository
 	 */
 	protected $categoryRepository;
 
 	/**
-	 * @var Tx_WineTreatment_Domain_Model_ProductRepository
+	 * @var Tx_WineTreatment_Domain_Repository_ProductRepository
 	 */
 	protected $productRepository;
 
@@ -21,8 +21,26 @@ class Tx_WineTreatment_Controller_CategoryController extends Tx_Extbase_MVC_Cont
 	 * @return void
 	 */
 	public function initializeAction() {
-		$this->categoryRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Model_CategoryRepository');
-		$this->productRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Model_ProductRepository');
+		$this->categoryRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Repository_CategoryRepository');
+		$this->productRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Repository_ProductRepository');
+	}
+
+	/**
+	 * Sets the actual stylesheet to the HeaderData
+	 *
+	 * @return void
+	 */
+	protected function setStylesheet() {
+
+		if (is_array($this->settings)
+			&& is_array($this->settings['controllers'])
+			&& is_array($this->settings['controllers']['Category'])
+			&& isset($this->settings['controllers']['Category']['stylesheet'])
+			&& '' != $this->settings['controllers']['Category']['stylesheet']) {
+			$stylesheet = str_replace('EXT:', t3lib_extMgm::siteRelPath('wine_treatment'), $this->settings['controllers']['Category']['stylesheet']);
+			$this->response->addAdditionalHeaderData('<link rel="stylesheet" href="' . $stylesheet . '" />');
+		}
+
 	}
 
 	/**
@@ -31,7 +49,7 @@ class Tx_WineTreatment_Controller_CategoryController extends Tx_Extbase_MVC_Cont
 	 * @return string The rendered view
 	 */
 	public function indexAction() {
-		$this->view->assign('categories', $this->categoryRepository->getOrdered());
+		$this->setStylesheet();
 	}
 
 	/**
@@ -41,6 +59,7 @@ class Tx_WineTreatment_Controller_CategoryController extends Tx_Extbase_MVC_Cont
 	 * @return string The rendered view of a single category
 	 */
 	public function showAction(Tx_WineTreatment_Domain_Model_Category $category) {
+		$this->setStylesheet();
 		$this->view->assign('category', $category);
 		$this->view->assign('products', $this->productRepository->getOrderedByCategory($category->getUid()));
 	}

@@ -28,12 +28,18 @@
 		<div class="tx-winetreatment-product-body">
 			<f:format.html>{product.tiProperty}</f:format.html>
 		</div>
-		<div class="tx-winetreatment-product-header">
-			<f:translate key="ti_special" />
-		</div>
-		<div class="tx-winetreatment-product-body">
-			<f:format.html>{product.tiSpecial}</f:format.html>
-		</div>
+
+		<f:if condition="{product.tiSpecial}">
+			<f:then>
+				<div class="tx-winetreatment-product-header">
+					<f:translate key="ti_special" />
+				</div>
+				<div class="tx-winetreatment-product-body">
+					<f:format.html>{product.tiSpecial}</f:format.html>
+				</div>
+			</f:then>
+		</f:if>
+
 		<div class="tx-winetreatment-product-header">
 			<f:translate key="ti_storage" />
 		</div>
@@ -46,5 +52,7 @@
 		<div class="tx-winetreatment-product-body">
 			<f:format.html>{product.tiQuality}</f:format.html>
 		</div>
+		<p>&nbsp;</p>
+		<p><strong>Version:</strong> <f:format.number decimals="1">{product.tiVersion}</f:format.number>
 	</div>
 </div>

@@ -19,7 +19,10 @@ class Tx_WineTreatment_View_Category_GvoPdf extends Tx_WineTreatment_View_Pdf {
 		$htmlcontent .= '<p>&nbsp;</p>';
 		$htmlcontent .= '<p>für die folgenden Produkte können wir bestätigen, dass sie keine gentechnisch veränderten Roh-, Inhaltsstoffe und Organismen gemäß VO (EG) Nr. 1829/2003 und VO (EG) Nr. 1830/2003 enthalten:</p>';
 		$htmlcontent .= '<p>&nbsp;</p>';
-		$htmlcontent .= '<ul>';
+		$htmlcontent .= '<table><tr><td>';
+		$htmlcontent .= '<ul type="square">';
+		$break = 20;
+		$counter = 1;
 
 		foreach ($this->category->getProducts() as $product) {
 
@@ -27,9 +30,15 @@ class Tx_WineTreatment_View_Category_GvoPdf extends Tx_WineTreatment_View_Pdf {
 				$htmlcontent .= '<li>' . $product->getName() . '</li>';
 			}
 
+			if ($counter == $break) {
+				$htmlcontent .= '</ul></td><td><ul type="square">';
+			}
+
+			$counter++;
 		}
 
 		$htmlcontent .= '</ul>';
+		$htmlcontent .= '</td></tr></table>';
 		$htmlcontent .= '<p>&nbsp;</p>';
 		$htmlcontent .= '<p>Eine Kennzeichnung gemäß der oben genannten Verordnungen besteht daher nicht. Diese Bescheinigung ist bis zum ' . $this->category->getGvoValid()->format('d.m.Y') . ' gültig. Wir überprüfen den GVO-Status unserer Produkte regelmäßig.</p>';
 

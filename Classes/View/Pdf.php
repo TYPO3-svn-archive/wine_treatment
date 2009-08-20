@@ -60,5 +60,15 @@ abstract class Tx_WineTreatment_View_Pdf extends Tx_Extbase_MVC_View_AbstractVie
 		unset($this->pdf);
 	}
 
+	/**
+	 * Modifies HTML-content
+	 *
+	 * @param string $html
+	 * @return string
+	 */
+	protected function htmlContent($html) {
+		return str_replace('<ul>', '<ul type="square">', $html);
+	}
+
 }
 

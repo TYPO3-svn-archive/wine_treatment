@@ -20,8 +20,10 @@
 			<label index="tx_winetreatment_domain_model_product">Wine Treatment Product</label>
 			<label index="tx_winetreatment_domain_model_product.name">Name</label>
 			<label index="tx_winetreatment_domain_model_product.description">Description</label>
+			<label index="tx_winetreatment_domain_model_product.url">URL</label>
 			<label index="tx_winetreatment_domain_model_product.sdb">Security Datasheet</label>
 			<label index="tx_winetreatment_domain_model_product.gvo">GVO available</label>
+			<label index="tx_winetreatment_domain_model_product.bio">GVO Bio PDF</label>
 			<label index="tx_winetreatment_domain_model_product.alg_directive">ALG Directive 2003/89/EC</label>
 			<label index="tx_winetreatment_domain_model_product.alg_directive.0">Empty</label>
 			<label index="tx_winetreatment_domain_model_product.alg_directive.1">Nothing</label>
@@ -39,6 +41,7 @@
 			<label index="tx_winetreatment_domain_model_product.ti_special">Special</label>
 			<label index="tx_winetreatment_domain_model_product.ti_storage">Storage</label>
 			<label index="tx_winetreatment_domain_model_product.ti_quality">Quality</label>
+			<label index="tx_winetreatment_domain_model_product.ti_pdf">TI PDF</label>
 			<label index="tx_winetreatment_domain_model_product.ti_version">Technical Information Version</label>
 			<label index="tx_winetreatment_domain_model_category">Wine Treatment Category</label>
 			<label index="tx_winetreatment_domain_model_category.name">Name</label>

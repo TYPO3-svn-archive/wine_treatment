@@ -34,11 +34,25 @@
 						<tr>
 							<td class="tx-winetreatment-category-show-product-description">
 								<f:format.html>{product.description}</f:format.html>
+								<f:if condition="{product.url}">
+									<f:then>
+										<strong><f:translate key="additional_information" />:</strong> <a href="http://<f:uri.external uri='{product.url}' />" title="<f:translate key='additional_information' />"><f:uri.external uri="{product.url}" /></a>
+									</f:then>
+								</f:if>
 							</td>
 							<td class="ti">
-								<f:link.action action="ti" controller="Product" arguments="{product : product}">
-									<f:image src="EXT:wine_treatment/Resources/Public/Images/iconTI.gif" alt="<f:translate key='technical_information' />" title="<f:translate key='technical_information' />" height="40" width="40" />
-								</f:link.action>
+								<f:if condition="{product.tiPdf}">
+									<f:then>
+										<f:link.external uri="uploads/tx_winetreatment/{product.tiPdf}">
+											<f:image src="EXT:wine_treatment/Resources/Public/Images/iconTI.gif" alt="<f:translate key='technical_information' />" title="<f:translate key='technical_information' />" height="40" width="40" />
+										</f:link.external>
+									</f:then>
+									<f:else>
+										<f:link.action action="ti" controller="Product" arguments="{product : product}">
+											<f:image src="EXT:wine_treatment/Resources/Public/Images/iconTI.gif" alt="<f:translate key='technical_information' />" title="<f:translate key='technical_information' />" height="40" width="40" />
+										</f:link.action>
+									</f:else>
+								</f:if>
 							</td>
 							<td class="gvo">
 								<f:if condition="{product.gvo}">
@@ -76,7 +90,7 @@
 							<td class="sdb">
 								<f:if condition="{product.sdb}">
 									<f:then>
-										<f:link.external uri="uploads/tx_winetreatment/{product.sdb}">
+										<f:link.external uri="{product.sdb}">
 											<f:image src="EXT:wine_treatment/Resources/Public/Images/iconSDB.gif" alt="<f:translate key='sdb' />" title="<f:translate key='sdb' />" height="40" width="40" />
 										</f:link.external>
 									</f:then>
@@ -91,21 +105,21 @@
 								<f:if condition="{product.wine}">
 									<f:then>
 										<f:for each="{product.wine}" as="wine">
-											<f:image src="uploads/tx_winetreatment/{wine.icon}" alt="Weinart: {wine.name}" title="Weinart: {wine.name}" height="40" width="40" />
+											<f:image src="{wine.icon}" alt="Weinart: {wine.name}" title="Weinart: {wine.name}" height="40" width="40" />
 										</f:for>
 									</f:then>
 								</f:if>
 								<f:if condition="{product.usages}">
 									<f:then>
 										<f:for each="{product.usages}" as="usage">
-											<f:image src="uploads/tx_winetreatment/{usage.icon}" alt="Anwendung: {usage.name}" title="Anwendung: {usage.name}" height="40" width="40" />
+											<f:image src="{usage.icon}" alt="Anwendung: {usage.name}" title="Anwendung: {usage.name}" height="40" width="40" />
 										</f:for>
 									</f:then>
 								</f:if>
 								<f:if condition="{product.functions}">
 									<f:then>
 										<f:for each="{product.functions}" as="function">
-											<f:image src="uploads/tx_winetreatment/{function.icon}" alt="Funktion: {function.name}" title="Funktion: {function.name}" height="40" width="40" />
+											<f:image src="{function.icon}" alt="Funktion: {function.name}" title="Funktion: {function.name}" height="40" width="40" />
 										</f:for>
 									</f:then>
 								</f:if>

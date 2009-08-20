@@ -14,7 +14,7 @@ class Tx_WineTreatment_View_Product_AlgPdf extends Tx_WineTreatment_View_Pdf {
 		$this->pdf->SetTitle($this->product->getName());
 		$this->pdf->SetSubject('Information zum Allergenstatus für ' . $this->product->getName());
 		$this->pdf->writeHeadline('Information zum Allergenstatus: ' . $this->product->getName());
-		$htmlcontent = '<p>&nbsp;</p><p>&nbsp;</p>';
+		$htmlcontent = '<p>Bei diesem Produkt können wir den nachfolgenden Allergenstatus bestätigen.</p><p>&nbsp;</p>';
 
 		if ($this->product->getAlgDirective() == 0) {
 		} else {
@@ -23,12 +23,12 @@ class Tx_WineTreatment_View_Product_AlgPdf extends Tx_WineTreatment_View_Pdf {
 			if ($this->product->getAlgDirective() == 1) {
 				$htmlcontent .= '<br />Keine<br />';
 			} else {
-				$htmlcontent .= $GLOBALS['TSFE']->cObj->parseFunc($this->product->getAlgDirectiveText(), array(), '< lib.parseFunc_RTE');
+				$htmlcontent .= $this->htmlContent($GLOBALS['TSFE']->cObj->parseFunc($this->product->getAlgDirectiveText(), array(), '< lib.parseFunc_RTE'));
 			}
 
 		}
 
-		$htmlcontent .= '<p>&nbsp;</p><p>&nbsp;</p>';
+		$htmlcontent .= '<p>&nbsp;</p>';
 
 		if ($this->product->getAlgAlba() == 0) {
 		} else {
@@ -37,13 +37,13 @@ class Tx_WineTreatment_View_Product_AlgPdf extends Tx_WineTreatment_View_Pdf {
 			if ($this->product->getAlgAlba() == 1) {
 				$htmlcontent .= '<br />Keine<br />';
 			} else {
-				$htmlcontent .= $GLOBALS['TSFE']->cObj->parseFunc($this->product->getAlgAlbaText(), array(), '< lib.parseFunc_RTE');
+				$htmlcontent .= $this->htmlContent($GLOBALS['TSFE']->cObj->parseFunc($this->product->getAlgAlbaText(), array(), '< lib.parseFunc_RTE'));
 			}
 
 		}
 
 		$this->pdf->writeHTML($htmlcontent, true, 0, true, 0);
-		$this->pdf->setFooterText('Copyright &copy; 2009 by ZEF&Uuml;G GdbR. Alle Rechte vorbehalten.<br /><br />Version: ' . (string)$this->product->getAlgVersion() . '&nbsp;&nbsp;' . $this->product->getTstamp()->format('d.m.Y'));
+		$this->pdf->setFooterText('Copyright &copy; 2009 by ZEF&Uuml;G GdbR. Alle Rechte vorbehalten.<br /><br />Version: ' . number_format((float)$this->product->getAlgVersion(), 1) . '&nbsp;&nbsp;' . $this->product->getTstamp()->format('d.m.Y'));
 		$this->outputPdf($this->product->getName() . '-ALG.pdf');
 	}
 

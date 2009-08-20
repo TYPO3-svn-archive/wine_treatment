@@ -3,10 +3,9 @@
 class tx_winetreatment_menuitem_procfuncs {
 
 	public function createCategoryMenuItems($menuArr, $conf) {
-/**
 
 		if ($conf['parentObj']->id == $conf['productPid']) {
-			$this->categoryRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Model_CategoryRepository');
+			$this->categoryRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Repository_CategoryRepository');
 			$categories = $this->categoryRepository->getOrdered();
 
 			foreach ($categories as $category) {
@@ -18,7 +17,7 @@ class tx_winetreatment_menuitem_procfuncs {
 					'uid' => $conf['productPid'],
 					'title' => $category->getName(),
 					'_ADD_GETVARS' => $queryParams,
-					$item['ITEM_STATE'] = 'NO',
+					'ITEM_STATE' => 'NO',
 				);
 				$menuArr[] = $item;
 			}
@@ -28,10 +27,8 @@ class tx_winetreatment_menuitem_procfuncs {
 		if (t3lib_extMgm::isLoaded('zefueg_dealer')) {
 
 			if ($conf['parentObj']->id == $conf['dealerPid']) {
-				$this->regionRepository = t3lib_div::makeInstance('Tx_ZefuegDealer_Domain_Model_RegionRepository');
+				$this->regionRepository = t3lib_div::makeInstance('Tx_ZefuegDealer_Domain_Repository_RegionRepository');
 				$regions = $this->regionRepository->getOrdered();
-var_dump($regions);
-die();
 
 				foreach ($regions as $region) {
 					$queryParams = '&tx_zefuegdealer_pi1[region][uid]=' . (integer)$region->getUid();
@@ -40,9 +37,9 @@ die();
 					$queryParams .= '&cHash=' . t3lib_div::shortMD5(serialize(t3lib_div::cHashParams($queryParams)));
 					$item = array(
 						'uid' => $conf['dealerPid'],
-						'title' => $region->getName(),
+						'title' => htmlspecialchars($region->getName()),
 						'_ADD_GETVARS' => $queryParams,
-						$item['ITEM_STATE'] = 'NO',
+						'ITEM_STATE' => 'NO',
 					);
 					$menuArr[] = $item;
 				}
@@ -50,7 +47,6 @@ die();
 			}
 
 		}
-**/
 
 		return $menuArr;
 	}

@@ -4,10 +4,9 @@ if (!defined('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-Tx_Extbase_Utility_Plugin::registerPlugin(
+Tx_Extbase_Utility_Plugin::configureDispatcher(
 	'WineTreatment',
 	'Pi1',
-	'Wine Treatment Catalogue',
 	array(
 		'Category' => 'index,show,gvoPdf',
 		'Product' => 'si,ti,gvo,alg,sdb,tiPdf,algPdf,siPdf',

@@ -17,5 +17,11 @@
 			</f:then>
 		</f:if>
 		</strong>
+		<f:if condition="{product.bio}">
+			<f:then>
+				<p>&nbsp;</p>
+				<p>Bio-Erklärung: <f:link.external uri="{product.bio}"><f:image src="EXT:wine_treatment/Resources/Public/Images/pdf.gif" alt="Bio-Erklärung" title="Bio-Erklärung" /></f:link.external></p>
+			</f:then>
+		</f:if>
 	</div>
 </div>
