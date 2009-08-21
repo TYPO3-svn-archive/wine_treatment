@@ -1,4 +1,4 @@
-plugin.tx_winetreatment {
+plugin.tx_winetreatment.settings {
 	controllers {
 		Category {
 			stylesheet = EXT:Resources/Public/Stylesheets/WineTreatmentCategory.css
