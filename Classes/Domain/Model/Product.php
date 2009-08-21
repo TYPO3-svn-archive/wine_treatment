@@ -109,7 +109,7 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	/**
 	 * The version of ALG
 	 *
-	 * @var double
+	 * @var float
 	 */
 	protected $algVersion = 0.00;
 
@@ -186,7 +186,7 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	/**
 	 * The TI version
 	 *
-	 * @var double
+	 * @var float
 	 */
 	protected $tiVersion = 0.00;
 
@@ -427,7 +427,7 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	/**
 	 * Sets the TI Version
 	 *
-	 * @param double $tiVersion
+	 * @param float $tiVersion
 	 * @return void
 	 */
 	public function setTiVersion($tiVersion) {
@@ -437,7 +437,7 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	/**
 	 * Gets the TI Version
 	 *
-	 * @return double
+	 * @return float
 	 */
 	public function getTiVersion() {
 		return $this->tiVersion;
@@ -560,7 +560,7 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	/**
 	 * Sets the ALG Version
 	 *
-	 * @param double $algVersion
+	 * @param float $algVersion
 	 * @return void
 	 */
 	public function setAlgVersion($algVersion) {
@@ -570,7 +570,7 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	/**
 	 * Gets the ALG Version
 	 *
-	 * @return double
+	 * @return float
 	 */
 	public function getAlgVersion() {
 		return $this->algVersion;
