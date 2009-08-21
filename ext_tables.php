@@ -4,7 +4,7 @@ if (!defined('TYPO3_MODE')) {
 	die('Access denied.');
 }
 
-Tx_Extbase_Utility_Plugin::registerPlugin(
+Tx_Extbase_Utility_Extension::registerPlugin(
 	'WineTreatment',
 	'Pi1',
 	'Wine Treatment Catalogue'
@@ -33,7 +33,7 @@ $GLOBALS['TCA']['tx_winetreatment_domain_model_wine'] = array(
 			'disabled' => 'hidden',
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/tca_tx_winetreatment_domain_model_wine.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/icon_tx_winetreatment_domain_model_wine.gif',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Images/icon_tx_winetreatment_domain_model_wine.gif',
 	),
 );
 
@@ -53,7 +53,7 @@ $GLOBALS['TCA']['tx_winetreatment_domain_model_usage'] = array(
 			'disabled' => 'hidden',
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/tca_tx_winetreatment_domain_model_usage.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/icon_tx_winetreatment_domain_model_usage.gif',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Images/icon_tx_winetreatment_domain_model_usage.gif',
 	),
 );
 
@@ -73,7 +73,7 @@ $GLOBALS['TCA']['tx_winetreatment_domain_model_function'] = array(
 			'disabled' => 'hidden',
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/tca_tx_winetreatment_domain_model_function.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/icon_tx_winetreatment_domain_model_function.gif',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Images/icon_tx_winetreatment_domain_model_function.gif',
 	),
 );
 
@@ -93,7 +93,7 @@ $GLOBALS['TCA']['tx_winetreatment_domain_model_specinfo'] = array(
 			'disabled' => 'hidden',
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/tca_tx_winetreatment_domain_model_specinfo.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/icon_tx_winetreatment_domain_model_specinfo.gif',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Images/icon_tx_winetreatment_domain_model_specinfo.gif',
 	),
 );
 
@@ -114,7 +114,7 @@ $GLOBALS['TCA']['tx_winetreatment_domain_model_product'] = array(
 			'disabled' => 'hidden',
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/tca_tx_winetreatment_domain_model_product.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/icon_tx_winetreatment_domain_model_product.gif',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Images/icon_tx_winetreatment_domain_model_product.gif',
 	),
 );
 
@@ -135,20 +135,10 @@ $GLOBALS['TCA']['tx_winetreatment_domain_model_category'] = array(
 			'disabled' => 'hidden',
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/tca_tx_winetreatment_domain_model_category.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/icon_tx_winetreatment_domain_model_category.gif',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Images/icon_tx_winetreatment_domain_model_category.gif',
 	),
 );
 
 if (TYPO3_MODE == 'BE') {
-	t3lib_extMgm::addModulePath(
-		'web_txwinetreatmentM1',
-		t3lib_extMgm::extPath($_EXTKEY) . 'Module/CategoryModule/'
-	);
-	t3lib_extMgm::addModule(
-		'web',
-		'txwinetreatmentM1',
-		'',
-		t3lib_extMgm::extPath($_EXTKEY) . 'Module/CategoryModule/'
-	);
 }
 

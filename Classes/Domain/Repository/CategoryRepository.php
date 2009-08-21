@@ -27,11 +27,11 @@ class Tx_WineTreatment_Domain_Repository_CategoryRepository extends Tx_Extbase_P
 	}
 
 	public function getOrdered() {
-		$query = $this->createQuery(FALSE);
-		$query->setOrderings(array('name' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING));
-		$result = $query->execute();
-		$this->persistenceManager->getSession()->registerReconstitutedObjects($result);
-		return $result;
+		$query = $this->createQuery();
+		$query->getQuerySettings()->setRespectStoragePage(FALSE);
+		return $query
+			->setOrderings(array('name' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING))
+			->execute();
 	}
 
 }
