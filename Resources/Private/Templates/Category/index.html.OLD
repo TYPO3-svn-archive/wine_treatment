@@ -1,0 +1,13 @@
+<div class="tx-winetreatment-category">
+	<ul>
+		<f:for each="{categories}" as="category">
+			<f:if condition="{category.products}">
+				<f:then>
+					<li>
+						<f:link.action action="show" arguments="{category : category}" title="<f:translate key='category_show_products' />">{category.name}</f:link.action>
+					</li>
+				</f:then>
+			</f:if>
+		</f:for>
+	</ul>
+</div>

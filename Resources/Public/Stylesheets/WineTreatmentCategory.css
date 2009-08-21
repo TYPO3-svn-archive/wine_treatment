@@ -1,0 +1,81 @@
+@charset "utf-8";
+
+.tx-winetreatment-category {
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+.tx-winetreatment-category a {
+	text-decoration: none;
+	font-weight: normal;
+	color: rgb(23,41,131);
+}
+
+.tx-winetreatment-category ul li {
+	float: left;
+	padding-right: 20px;
+}
+
+.tx-winetreatment-category p.tx-winetreatment-category-show-name {
+	padding-left: 0px;
+	padding-bottom: 10px;
+	font-size: 20px;
+}
+
+.tx-winetreatment-category table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.tx-winetreatment-category table img {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.tx-winetreatment-category table tbody td {
+	padding: 5px;
+}
+
+.tx-winetreatment-category table thead {
+	display: none;
+}
+
+.tx-winetreatment-category table tfoot tr td {
+	padding-top: 20px;
+}
+
+.tx-winetreatment-category table tbody tr td.tx-winetreatment-category-show-product-name {
+	background-color: rgb(227,228,229);
+}
+
+.tx-winetreatment-category table tbody tr td.tx-winetreatment-category-show-product-description {
+	padding-top: 15px;
+	padding-bottom: 5px;
+	font-weight: normal;
+	width: 100%;
+}
+
+td.tx-winetreatment-category-show-product-description p {
+	text-align: justify;
+	padding-bottom: 10px;
+	line-height: 20px;
+}
+
+.tx-winetreatment-category td.ti,
+.tx-winetreatment-category td.gvo,
+.tx-winetreatment-category td.alg,
+.tx-winetreatment-category td.sdb {
+	padding-top: 15px;
+	vertical-align: top;
+	text-align: center;
+}
+
+.tx-winetreatment-category td.si {
+	text-align: right;
+}
+
+tr.tx-winetreatment-category-additional {
+	vertical-align: top;
+	height: 85px;
+}
+

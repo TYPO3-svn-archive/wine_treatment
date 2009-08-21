@@ -1,0 +1,11 @@
+plugin.tx_winetreatment {
+	controllers {
+		Category {
+			stylesheet = EXT:Resources/Public/Stylesheets/WineTreatmentCategory.css
+		}
+		Product {
+			stylesheet = EXT:Resources/Public/Stylesheets/WineTreatmentProduct.css
+		}
+	}
+}
+
