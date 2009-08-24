@@ -43,6 +43,23 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 	}
 
 	/**
+	 * Sets the title based on the specific product
+	 *
+	 * @param array
+	 * @return void
+	 */
+	protected function setTitle(array $titleParts) {
+		preg_match('/<title>(.*)<\/title>/', $GLOBALS['TSFE']->content, $matches);
+		$matches = explode('|', $matches[1]);
+		$final = array();
+		$final[0] = trim($matches[0]);
+		$final[1] = trim($matches[1]);
+		$final = array_merge($final, $titleParts);
+		$title = implode(' | ', $final);
+		$GLOBALS['TSFE']->content = preg_replace('/<title>.*<\/title>/', '<title>' . $title . '</title>', $GLOBALS['TSFE']->content);
+	}
+
+	/**
 	 * List action for this controller. Displays a product
 	 *
 	 * @param Tx_WineTreatment_Domain_Model_Product $product The product to show
@@ -87,6 +104,7 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 	 * @return string
 	 */
 	public function siAction(Tx_WineTreatment_Domain_Model_Product $product) {
+		$this->setTitle(array($product->getName(), 'Spezielle Informationen'));
 		$this->setStylesheet();
 		$this->categoryRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Repository_CategoryRepository');
 		$category = $this->categoryRepository->findByUid((int)$product->getCategory());
@@ -101,6 +119,7 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 	 * @return string
 	 */
 	public function tiAction(Tx_WineTreatment_Domain_Model_Product $product) {
+		$this->setTitle(array($product->getName(), 'Technische Information'));
 		$this->setStylesheet();
 		$this->categoryRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Repository_CategoryRepository');
 		$category = $this->categoryRepository->findByUid((int)$product->getCategory());
@@ -115,6 +134,7 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 	 * @return string
 	 */
 	public function gvoAction(Tx_WineTreatment_Domain_Model_Product $product) {
+		$this->setTitle(array($product->getName(), 'Gentechnik Erklärung'));
 		$this->setStylesheet();
 		$this->categoryRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Repository_CategoryRepository');
 		$category = $this->categoryRepository->findByUid((int)$product->getCategory());
@@ -129,6 +149,7 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 	 * @return string
 	 */
 	public function algAction(Tx_WineTreatment_Domain_Model_Product $product) {
+		$this->setTitle(array($product->getName(), 'Allergene'));
 		$this->setStylesheet();
 		$this->categoryRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Repository_CategoryRepository');
 		$category = $this->categoryRepository->findByUid((int)$product->getCategory());
@@ -143,6 +164,7 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 	 * @return string
 	 */
 	public function sdbAction(Tx_WineTreatment_Domain_Model_Product $product) {
+		$this->setTitle(array($product->getName(), 'Sicherheitsdatenblatt'));
 		$this->setStylesheet();
 		$this->view->assign('product', $product);
 	}

@@ -59,6 +59,14 @@ class Tx_WineTreatment_Controller_CategoryController extends Tx_Extbase_MVC_Cont
 	 * @return string The rendered view of a single category
 	 */
 	public function showAction(Tx_WineTreatment_Domain_Model_Category $category) {
+		preg_match('/<title>(.*)<\/title>/', $GLOBALS['TSFE']->content, $matches);
+		$matches = explode('|', $matches[1]);
+		$final = array();
+		$final[0] = trim($matches[0]);
+		$final[1] = trim($matches[1]);
+		$final[2] = $category->getName();
+		$title = implode(' | ', $final);
+		$GLOBALS['TSFE']->content = preg_replace('/<title>.*<\/title>/', '<title>' . $title . '</title>', $GLOBALS['TSFE']->content);
 		$this->setStylesheet();
 		$this->view->assign('category', $category);
 		$this->view->assign('products', $this->productRepository->getOrderedByCategory($category->getUid()));
