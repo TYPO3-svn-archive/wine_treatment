@@ -20,7 +20,7 @@ class tx_winetreatment {
 						$matches[$key] = trim($value);
 					}
 
-					$finalTag = implode(' | ', $matches);
+					$finalTag = htmlspecialchars_decode(implode('/', $matches));
 					$GLOBALS['TSFE']->content = preg_replace('/piwik_action_name = \'(.*)\'/', "piwik_action_name = '" . $finalTag . "'", $GLOBALS['TSFE']->content);
 				}
 
