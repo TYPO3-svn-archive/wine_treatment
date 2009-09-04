@@ -19,6 +19,12 @@ Tx_Extbase_Utility_Extension::configureDispatcher(
 
 $TYPO3_CONF_VARS['FE']['eID_include']['pdf'] = 'EXT:wine_treatment/Resources/Private/PHP/eidPdf.php';
 
+if (TYPO3_MODE == 'FE') {
+	require_once(t3lib_extMgm::extPath('wine_treatment') . 'class.tx_winetreatment.php');
+}
+
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-output'][] = 'tx_winetreatment->contentPostProc_output';
+
 t3lib_extMgm::addPageTSConfig('
 
 	# *******************************************************************************************
