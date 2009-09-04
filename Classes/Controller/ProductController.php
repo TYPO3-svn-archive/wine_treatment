@@ -49,14 +49,30 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 	 * @return void
 	 */
 	protected function setTitle(array $titleParts) {
-		preg_match('/<title>(.*)<\/title>/', $GLOBALS['TSFE']->content, $matches);
-		$matches = explode('|', $matches[1]);
-		$final = array();
-		$final[0] = trim($matches[0]);
-		$final[1] = trim($matches[1]);
-		$final = array_merge($final, $titleParts);
-		$title = implode(' | ', $final);
-		$GLOBALS['TSFE']->content = preg_replace('/<title>.*<\/title>/', '<title>' . $title . '</title>', $GLOBALS['TSFE']->content);
+
+		if ($GLOBALS['TSFE']->config['config']['noPageTitle'] == 2) {
+			$titleTagContent = $GLOBALS['TSFE']->tmpl->printTitle(
+				$GLOBALS['TSFE']->altPageTitle?$GLOBALS['TSFE']->altPageTitle:$GLOBALS['TSFE']->page['title'],
+				0,
+				$GLOBALS['TSFE']->config['config']['pageTitleFirst']
+			);
+
+			if ($GLOBALS['TSFE']->config['config']['titleTagFunction'])     {
+				$titleTagContent = $GLOBALS['TSFE']->cObj->callUserFunction($GLOBALS['TSFE']->config['config']['titleTagFunction'], array(), $titleTagContent);
+			}
+
+			$originalTitleParts = explode('|', $titleTagContent);
+			$finalTagParts = array();
+
+			foreach ($originalTitleParts as $titlePart) {
+				$finalTagParts[] = trim($titlePart);
+			}
+
+			$finalTagParts = array_merge($finalTagParts, $titleParts);
+			$finalTag = implode(' | ', $finalTagParts);
+			$this->response->addAdditionalHeaderData('<title>' . htmlspecialchars($finalTag) . '</title>');
+		}
+
 	}
 
 	/**
