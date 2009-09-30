@@ -123,7 +123,7 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 		$this->setTitle(array($product->getName(), 'Spezielle Informationen'));
 		$this->setStylesheet();
 		$this->categoryRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Repository_CategoryRepository');
-		$category = $this->categoryRepository->findByUid((int)$product->getCategory());
+		$category = $this->categoryRepository->findOneByUid((int)$product->getCategory());
 		$this->view->assign('product', $product);
 		$this->view->assign('category', $category);
 	}
@@ -138,7 +138,7 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 		$this->setTitle(array($product->getName(), 'Technische Information'));
 		$this->setStylesheet();
 		$this->categoryRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Repository_CategoryRepository');
-		$category = $this->categoryRepository->findByUid((int)$product->getCategory());
+		$category = $this->categoryRepository->findOneByUid((int)$product->getCategory());
 		$this->view->assign('product', $product);
 		$this->view->assign('category', $category);
 	}
@@ -153,7 +153,7 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 		$this->setTitle(array($product->getName(), 'Gentechnik Erklärung'));
 		$this->setStylesheet();
 		$this->categoryRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Repository_CategoryRepository');
-		$category = $this->categoryRepository->findByUid((int)$product->getCategory());
+		$category = $this->categoryRepository->findOneByUid((int)$product->getCategory());
 		$this->view->assign('product', $product);
 		$this->view->assign('category', $category);
 	}
@@ -168,7 +168,7 @@ class Tx_WineTreatment_Controller_ProductController extends Tx_Extbase_MVC_Contr
 		$this->setTitle(array($product->getName(), 'Allergene'));
 		$this->setStylesheet();
 		$this->categoryRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Repository_CategoryRepository');
-		$category = $this->categoryRepository->findByUid((int)$product->getCategory());
+		$category = $this->categoryRepository->findOneByUid((int)$product->getCategory());
 		$this->view->assign('product', $product);
 		$this->view->assign('category', $category);
 	}

@@ -20,7 +20,7 @@
 			<tbody>
 				<f:for each="{product.specialInformation}" as="information">
 					<tr>
-						<td class="date"><f:format.date format="d.m.Y">{information.crdate}</f:format.date></td>
+						<td class="date"><f:format.date format="d.m.Y">{information.tstamp}</f:format.date></td>
 						<td><f:format.html>{information.information}</f:format.html>
 					</tr>
 				</f:for>

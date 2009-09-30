@@ -4,7 +4,7 @@ if (!defined('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-Tx_Extbase_Utility_Extension::configureDispatcher(
+Tx_Extbase_Utility_Extension::configurePlugin(
 	'WineTreatment',
 	'Pi1',
 	array(

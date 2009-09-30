@@ -53,9 +53,9 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	/**
 	 * The list of special informations
 	 *
-	 * @var array
+	 * @var Tx_Extbase_Persistence_ObjectStorage
 	 */
-	protected $specialInformation = array();
+	protected $specialInformation;
 
 	/**
 	 * Defines if this product has a GVO
@@ -116,23 +116,23 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	/**
 	 * The list of wine
 	 *
-	 * @var array of Tx_WineTreatment_Domain_Model_Wine
+	 * @var Tx_Extbase_Persistence_ObjectStorage
 	 */
-	protected $wine = array();
+	protected $wine;
 
 	/**
 	 * The list of usages
 	 *
-	 * @var array of Tx_WineTreatment_Domain_Model_Usage
+	 * @var Tx_Extbase_Persistence_ObjectStorage
 	 */
-	protected $usages = array();
+	protected $usages;
 
 	/**
 	 * The list of functions
 	 *
-	 * @var array of Tx_WineTreatment_Domain_Model_Function
+	 * @var Tx_Extbase_Persistence_ObjectStorage
 	 */
-	protected $functions = array();
+	protected $functions;
 
 	/**
 	 * The TI usage
@@ -194,6 +194,10 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 * Constructs this product
 	 */
 	public function __construct() {
+		$this->specialInformation = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->wine = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->usages = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->functions = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
@@ -621,7 +625,7 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	public function addSpecialInformation(Tx_WineTreatment_Domain_Model_SpecInfo $specInfo) {
-		$this->specialInformation[] = $specInfo;
+		$this->specialInformation->attach($specInfo);
 	}
 
 	/**
@@ -631,17 +635,7 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	public function removeSpecialInformation(Tx_WineTreatment_Domain_Model_SpecInfo $specInfoToRemove) {
-
-		foreach ($this->specialInformation as $key => $specInfo) {
-
-			if ($specInfo === $specInfoToRemove) {
-				unset($this->specialInformation[$key]);
-				reset($this->specialInformation);
-				return;
-			}
-
-		}
-
+		$this->specialInformation->detach($specInfoToRemove);
 	}
 
 	/**
@@ -650,32 +644,16 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	public function removeAllSpecialInformation() {
-		$this->specialInformation = array();
+		$this->specialInformation = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
 	 * Returns all SpecInfo in this product
 	 *
-	 * @return array of Tx_WineTreatment_Domain_Model_SpecInfo
+	 * @return Tx_Extbase_Persistence_ObjectStorage
 	 */
 	public function getSpecialInformation() {
-		return $this->specialInformation;
-	}
-
-	/**
-	 * Returns single SpecInfo by its identifier
-	 *
-	 * @param int $uid
-	 * @return Tx_WineTreatment_Domain_Model_SpecInfo or NULL of not found
-	 */
-	public function findSpecialInformationByUid($uid) {
-
-		if (array_key_exists($uid, $this->specialInformation)) {
-			return $this->specialInformation[$uid];
-		} else {
-			return NULL;
-		}
-
+		return clone $this->specialInformation;
 	}
 
 	/**
@@ -685,7 +663,7 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	public function addWine(Tx_WineTreatment_Domain_Model_Wine $wine) {
-		$this->wine[] = $wine;
+		$this->wine->attach($wine);
 	}
 
 	/**
@@ -695,17 +673,7 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	public function removeWine(Tx_WineTreatment_Domain_Model_Wine $wineToRemove) {
-
-		foreach ($this->wine as $key => $wine) {
-
-			if ($wine === $wineToRemove) {
-				unset($this->wine[$key]);
-				reset($this->wine);
-				return;
-			}
-
-		}
-
+		$this->wine->detach($wine);
 	}
 
 	/**
@@ -714,32 +682,16 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	public function removeAllWine() {
-		$this->wine = array();
+		$this->wine = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
 	 * Returns all Wine in this product
 	 *
-	 * @return array of Tx_WineTreatment_Domain_Model_Wine
+	 * @return Tx_Extbase_Persistence_ObjectStorage
 	 */
 	public function getWine() {
-		return $this->wine;
-	}
-
-	/**
-	 * Returns single Wine by its identifier
-	 *
-	 * @param int $uid
-	 * @return Tx_WineTreatment_Domain_Model_Wine or NULL of not found
-	 */
-	public function findWineByUid($uid) {
-
-		if (array_key_exists($uid, $this->wine)) {
-			return $this->wine[$uid];
-		} else {
-			return NULL;
-		}
-
+		return clone $this->wine;
 	}
 
 	/**
@@ -749,7 +701,7 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	public function addUsages(Tx_WineTreatment_Domain_Model_Usage $usage) {
-		$this->usages[] = $usage;
+		$this->usages->attach($usage);
 	}
 
 	/**
@@ -759,17 +711,7 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	public function removeUsages(Tx_WineTreatment_Domain_Model_Usage $usageToRemove) {
-
-		foreach ($this->usages as $key => $usage) {
-
-			if ($usage === $usageToRemove) {
-				unset($this->usage[$key]);
-				reset($this->usage);
-				return;
-			}
-
-		}
-
+		$this->usages->detach($usageToRemove);
 	}
 
 	/**
@@ -778,32 +720,16 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	public function removeAllUsages() {
-		$this->usages = array();
+		$this->usages = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
 	 * Returns all Usage in this product
 	 *
-	 * @return array of Tx_WineTreatment_Domain_Model_Usage
+	 * @return Tx_Extbase_Persistence_ObjectStorage
 	 */
 	public function getUsages() {
-		return $this->usages;
-	}
-
-	/**
-	 * Returns single Usage by its identifier
-	 *
-	 * @param int $uid
-	 * @return Tx_WineTreatment_Domain_Model_Usage or NULL of not found
-	 */
-	public function findUsagesByUid($uid) {
-
-		if (array_key_exists($uid, $this->usages)) {
-			return $this->usages[$uid];
-		} else {
-			return NULL;
-		}
-
+		return new $this->usages;
 	}
 
 	/**
@@ -813,7 +739,7 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	public function addFuntions(Tx_WineTreatment_Domain_Model_Functions $function) {
-		$this->functions[] = $function;
+		$this->functions->attach($function);
 	}
 
 	/**
@@ -823,17 +749,7 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	public function removeFunctions(Tx_WineTreatment_Domain_Model_Function $functionToRemove) {
-
-		foreach ($this->functions as $key => $function) {
-
-			if ($function === $functionToRemove) {
-				unset($this->function[$key]);
-				reset($this->function);
-				return;
-			}
-
-		}
-
+		$this->functions->detach($functionToRemove);
 	}
 
 	/**
@@ -842,32 +758,16 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	public function removeAllFunctions() {
-		$this->functions = array();
+		$this->functions = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
 	 * Returns all Function in this product
 	 *
-	 * @return array of Tx_WineTreatment_Domain_Model_Function
+	 * @return Tx_Extbase_Persistence_ObjectStorage
 	 */
 	public function getFunctions() {
-		return $this->functions;
-	}
-
-	/**
-	 * Returns single Function by its identifier
-	 *
-	 * @param int $uid
-	 * @return Tx_WineTreatment_Domain_Model_Function or NULL of not found
-	 */
-	public function findFunctionsByUid($uid) {
-
-		if (array_key_exists($uid, $this->functions)) {
-			return $this->functions[$uid];
-		} else {
-			return NULL;
-		}
-
+		return clone $this->functions;
 	}
 
 	/**

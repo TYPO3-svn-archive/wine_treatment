@@ -39,9 +39,9 @@ class Tx_WineTreatment_Domain_Model_Category extends Tx_Extbase_DomainObject_Abs
 	/**
 	 * The products contained in this category
 	 *
-	 * @var array
+	 * @var Tx_Extbase_Persistence_ObjectStorage
 	 */
-	protected $products = array();
+	protected $products;
 
 	/**
 	 * Constructs this category
@@ -49,6 +49,7 @@ class Tx_WineTreatment_Domain_Model_Category extends Tx_Extbase_DomainObject_Abs
 	 * @return
 	 */
 	public function __construct() {
+		$this->products = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
@@ -134,7 +135,7 @@ class Tx_WineTreatment_Domain_Model_Category extends Tx_Extbase_DomainObject_Abs
 	 * @return void
 	 */
 	public function addProduct(Tx_WineTreatment_Domain_Model_Product $product) {
-		$this->products[] = $product;
+		$this->products->attach($product);
 	}
 
 	/**
@@ -144,17 +145,7 @@ class Tx_WineTreatment_Domain_Model_Category extends Tx_Extbase_DomainObject_Abs
 	 * @return void
 	 */
 	public function removeProduct(Tx_WineTreatment_Domain_Model_Product $productToRemove) {
-
-		foreach ($this->products as $key => $product) {
-
-			if ($product === $productToRemove) {
-				unset($this->products[$key]);
-				reset($this->products);
-				return;
-			}
-
-		}
-
+		$this->products->detach($productToRemove);
 	}
 
 	/**
@@ -163,60 +154,16 @@ class Tx_WineTreatment_Domain_Model_Category extends Tx_Extbase_DomainObject_Abs
 	 * @return void
 	 */
 	public function removeAllProducts() {
-		$this->products = array();
+		$this->products = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
 	 * Returns all products in this category
 	 *
-	 * @return array of Tx_WineTreatment_Domain_Model_Product
+	 * @return Tx_Extbase_Persistence_ObjectStorage
 	 */
 	public function getProducts() {
-		return $this->products;
-	}
-
-	/**
-	 * Returns single product by its identifier
-	 *
-	 * @param int $uid
-	 * @return Tx_WineTreatment_Domain_Model_Product or NULL if not found
-	 */
-	public function findProductByUid($uid) {
-
-		if (array_key_exists($uid, $this->products)) {
-			return $this->products[$uid];
-		} else {
-			return NULL;
-		}
-
-	}
-
-	/**
-	 * Returns single product by name
-	 *
-	 * @param string $productName
-	 * @return Tx_WineTreatment_Domain_Model_Product or NULL if not found
-	 */
-	public function findProductByName($productName) {
-
-		foreach ($this->products as $product) {
-
-			if (strtolower($product->getName()) === strtolower($productName)) {
-				return $product;
-			}
-
-		}
-
-		return NULL;
-	}
-
-	/**
-	 * Returns the number of products in this category
-	 *
-	 * @return int Number of products
-	 */
-	public function getProductCount() {
-		return count($this->products);
+		return clone $this->products;
 	}
 
 	/**
