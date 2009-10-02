@@ -729,7 +729,7 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	 * @return Tx_Extbase_Persistence_ObjectStorage
 	 */
 	public function getUsages() {
-		return new $this->usages;
+		return clone $this->usages;
 	}
 
 	/**
