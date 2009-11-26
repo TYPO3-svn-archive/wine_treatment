@@ -53,7 +53,9 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	/**
 	 * The list of special informations
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_WineTreatment_Domain_Model_SpecInfo>
+	 * @lazy
+	 * @cascade remove
 	 */
 	protected $specialInformation;
 
@@ -116,21 +118,27 @@ class Tx_WineTreatment_Domain_Model_Product extends Tx_Extbase_DomainObject_Abst
 	/**
 	 * The list of wine
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_WineTreatment_Domain_Model_Wine>
+	 * @lazy
+	 * @cascade remove
 	 */
 	protected $wine;
 
 	/**
 	 * The list of usages
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_WineTreatment_Domain_Model_Usage>
+	 * @lazy
+	 * @cascade remove
 	 */
 	protected $usages;
 
 	/**
 	 * The list of functions
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_WineTreatment_Domain_Model_Function>
+	 * @lazy
+	 * @cascade remove
 	 */
 	protected $functions;
 

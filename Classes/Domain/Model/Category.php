@@ -39,7 +39,9 @@ class Tx_WineTreatment_Domain_Model_Category extends Tx_Extbase_DomainObject_Abs
 	/**
 	 * The products contained in this category
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_WineTreatment_Domain_Model_Product>
+	 * @lazy
+	 * @cascade remove
 	 */
 	protected $products;
 

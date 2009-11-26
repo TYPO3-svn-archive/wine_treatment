@@ -5,6 +5,11 @@
  */
 class Tx_WineTreatment_Domain_Repository_CategoryRepository extends Tx_Extbase_Persistence_Repository {
 
+	public function __construct() {
+		$dispatcher = new Tx_Extbase_Dispatcher();
+		parent::__construct();
+	}
+
 	/**
 	 * Removes the category's products before removing the category itself.
 	 *

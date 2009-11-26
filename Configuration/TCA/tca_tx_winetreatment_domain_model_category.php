@@ -116,7 +116,6 @@ $GLOBALS['TCA']['tx_winetreatment_domain_model_category'] = array(
 			'label' => 'LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tx_winetreatment_domain_model_product',
 			'config' => array(
 				'type' => 'inline',
-				'foreign_class' => 'Tx_WineTreatment_Domain_Model_Product',
 				'foreign_table' => 'tx_winetreatment_domain_model_product',
 				'appearance' => array(
 					'collapseAll' => TRUE,
