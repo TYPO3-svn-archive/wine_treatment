@@ -10,10 +10,12 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	array(
 		'Category' => 'index,show,gvoPdf',
 		'Product' => 'si,ti,gvo,alg,sdb,tiPdf,algPdf,siPdf',
+		'Export' => 'list,detail',
 	),
 	array(
 		'Category' => 'index,show,gvoPdf',
 		'Product' => 'si,ti,gvo,alg,sdb,tiPdf,algPdf,siPdf',
+		'Export' => 'list,detail',
 	)
 );
 

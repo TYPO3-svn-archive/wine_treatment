@@ -139,6 +139,38 @@ $GLOBALS['TCA']['tx_winetreatment_domain_model_category'] = array(
 	),
 );
 
+$GLOBALS['TCA']['tx_winetreatment_domain_model_access'] = array(
+	'ctrl' => array(
+		'title' => 'LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tx_winetreatment_domain_model_access',
+		'label' => 'customer',
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
+		'default_sortby' => 'ORDER BY customer',
+		'dividers2tabs' => 1,
+		'enablecolumns' => array(
+			'disabled' => 'hidden',
+		),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/tca_tx_winetreatment_domain_model_access.php',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Images/icon_tx_winetreatment_domain_model_access.gif',
+	),
+);
+
+$GLOBALS['TCA']['tx_winetreatment_domain_model_table'] = array(
+	'ctrl' => array(
+		'title' => 'LLL:EXT:wine_treatment/Resources/Private/Language/locallang_db.xml:tx_winetreatment_domain_model_table',
+		'label' => 'name',
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
+		'default_sortby' => 'ORDER BY name',
+		'dividers2tabs' => 1,
+		'enablecolumns' => array(
+			'disabled' => 'hidden',
+		),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/tca_tx_winetreatment_domain_model_table.php',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Images/icon_tx_winetreatment_domain_model_table.gif',
+	),
+);
+
 if (TYPO3_MODE == 'BE') {
 }
 

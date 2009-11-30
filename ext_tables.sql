@@ -229,7 +229,7 @@ CREATE TABLE tx_winetreatment_product_wine_mm (
 	tablenames tinytext,
 	sorting int(11) DEFAULT '0' NOT NULL,
 
-	KEY uid_locali (uid_local),
+	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
 );
 
@@ -242,7 +242,7 @@ CREATE TABLE tx_winetreatment_product_usage_mm (
 	tablenames tinytext,
 	sorting int(11) DEFAULT '0' NOT NULL,
 
-	KEY uid_locali (uid_local),
+	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
 );
 
@@ -255,7 +255,43 @@ CREATE TABLE tx_winetreatment_product_function_mm (
 	tablenames tinytext,
 	sorting int(11) DEFAULT '0' NOT NULL,
 
-	KEY uid_locali (uid_local),
+	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
+);
+
+#
+# Table structure for table 'tx_winetreatment_domain_model_access'
+#
+CREATE TABLE tx_winetreatment_domain_model_access (
+	uid int(11) NOT NULL auto_increment
+	pid int(11) DEFAULT '0' NOT NULL,
+	tstamp int(11) DEFAULT '0' NOT NULL,
+	crdate int(11) DEFAULT '0' NOT NULL,
+	deleted tinyint(4) DEFAULT '0' NOT NULL,
+	hidden tinyint(4) DEFAULT '0' NOT NULL,
+
+	customer int(11) DEFAULT '0' NOT NULL,
+	tables int(11) DEFAULT '0' NOT NULL,
+
+	PRIMARY KEY (uid),
+	KEY parent (pid)
+);
+
+#
+# Table structure for table 'tx_winetreatment_domain_model_table'
+#
+CREATE TABLE tx_winetreatment_domain_model_table (
+	uid int(11) NOT NULL auto_increment
+	pid int(11) DEFAULT '0' NOT NULL,
+	tstamp int(11) DEFAULT '0' NOT NULL,
+	crdate int(11) DEFAULT '0' NOT NULL,
+	deleted tinyint(4) DEFAULT '0' NOT NULL,
+	hidden tinyint(4) DEFAULT '0' NOT NULL,
+
+	access int(11) DEFAULT '0' NOT NULL,
+	name varchar(100) NOT NULL DEFAULT '',
+
+	PRIMARY KEY (uid),
+	KEY parent (pid)
 );
 

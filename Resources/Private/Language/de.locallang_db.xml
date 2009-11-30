@@ -43,6 +43,9 @@
 			<label index="tx_winetreatment_domain_model_category.name">Name</label>
 			<label index="tx_winetreatment_domain_model_category.url">URL</label>
 			<label index="tx_winetreatment_domain_model_category.gvo_valid">GVO Gültig Bis</label>
+			<label index="tx_winetreatment_domain_model_access">Berechtigung</label>
+			<label index="tx_winetreatment_domain_model_table">Tabelle</label>
+			<label index="tx_winetreatment_domain_model_table.name">Tabelle</label>
 			<label index="tab_techinfo">Technische Informationen</label>
 			<label index="tab_general">Allgemeine Informationen</label>
 			<label index="tab_alg">ALG Informationen</label>
