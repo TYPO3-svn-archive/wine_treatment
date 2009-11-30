@@ -29,6 +29,7 @@ class Tx_WineTreatment_Controller_ExportController extends Tx_Extbase_MVC_Contro
 		$this->categoryRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Repository_CategoryRepository');
 		$this->productRepository = t3lib_div::makeInstance('Tx_WineTreatment_Domain_Repository_ProductRepository');
 		$this->authenticationService = t3lib_div::makeInstance('Tx_JrRemoteAccess_Domain_Service_AuthenticationService');
+		$this->historyService = t3lib_div::makeInstance('Tx_JrRemoteAccess_Domain_Service_HistoryService');
 	}
 
 	/**
@@ -51,6 +52,10 @@ class Tx_WineTreatment_Controller_ExportController extends Tx_Extbase_MVC_Contro
 		} else {
 			$this->view->assign('categories', $this->categoryRepository->findAll());
 			$this->view->assign('host', t3lib_div::getIndpEnv('TYPO3_SITE_URL'));
+			$this->historyService->save(
+				$this->request->getArgument('customer'),
+				(int)$this->settings['historyPid']
+			);
 		}
 
 	}
@@ -86,6 +91,10 @@ class Tx_WineTreatment_Controller_ExportController extends Tx_Extbase_MVC_Contro
 					)
 				);
 				$this->view->assign('host', t3lib_div::getIndpEnv('TYPO3_SITE_URL'));
+				$this->historyService->save(
+					$this->request->getArgument('customer'),
+					(int)$this->settings['historyPid']
+				);
 			}
 
 		} else {

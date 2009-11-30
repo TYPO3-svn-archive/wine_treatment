@@ -7,5 +7,6 @@ plugin.tx_winetreatment.settings {
 			stylesheet = EXT:Resources/Public/Stylesheets/WineTreatmentProduct.css
 		}
 	}
+	historyPid =
 }
 
