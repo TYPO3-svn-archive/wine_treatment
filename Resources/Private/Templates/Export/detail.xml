@@ -1,0 +1,108 @@
+<?xml version='1.0' standalone='yes'?>
+<root>
+	<f:if condition="{error}">
+		<f:then>
+			<status>error</status>
+			<message>{error}</message>
+		</f:then>
+		<f:else>
+			<status>success</status>
+		</f:else>
+	</f:if>
+	<f:if condition="{products}">
+		<f:then>
+			<f:for each="{products}" as="product">
+				<product>
+					<name>{product.name}</name>
+					<tstamp><f:format.date format="Y-m-d H:i:s">{product.tstamp}</f:format.date></tstamp>
+					<description>{product.description}</description>
+					<ti_usage>{product.tiUsage}</ti_usage>
+					<ti_dosage>{product.tiDosage}</ti_dosage>
+					<ti_property>{product.tiProperty}</ti_property>
+					<ti_special>{product.tiSpecial}</ti_special>
+					<ti_storage>{product.tiStorage}</ti_storage>
+					<ti_quality>{product.tiQuality}</ti_quality>
+					<f:if condition="{product.tiPdf}">
+						<f:then>
+							<ti_pdf>{host}{product.tiPdf}</ti_pdf>
+						</f:then>
+						<f:else>
+							<ti_pdf/>
+						</f:else>
+					</f:if>
+					<ti_version><f:format.number decimals="2" decimalSeparator="." thousandsSeparator=",">{product.tiVersion}</f:format.number></ti_version>
+					<gvo>{product.gvo}</gvo>
+					<alg_version><f:format.number decimals="2" decimalSeparator="." thousandsSeparator=",">{product.algVersion}</f:format.number></alg_version>
+					<alg_directive>{product.algDirective}</alg_directive>
+					<alg_directive_text>{product.algDirectiveText}</alg_directive_text>
+					<alg_alba>{product.algAlba}</alg_alba>
+					<alg_alba_text>{product.algAlbaText}</alg_alba_text>
+					<f:if condition="{product.sdb}">
+						<f:then>
+							<sdb>{host}{product.sdb}</sdb>
+						</f:then>
+						<f:else>
+							<sdb/>
+						</f:else>
+					</f:if>
+					<f:if condition="{product.url}">
+						<f:then>
+							<url>http://{product.url}</url>
+						</f:then>
+						<f:else>
+							<url/>
+						</f:else>
+					</f:if>
+					<f:if condition="{product.bio}">
+						<f:then>
+							<bio>{host}{product.bio}</bio>
+						</f:then>
+						<f:else>
+							<bio/>
+						</f:else>
+					</f:if>
+					<f:if condition="{product.specialInformation}">
+						<f:then>
+							<f:for each="{product.specialInformation}" as="specInfo">
+								<special_information>
+									<information>{specInfo.information}</information>
+									<tstamp><f:format.date format="Y-m-d H:i:s">{specInfo.tstamp}</f:format.date></tstamp>
+								</special_information>
+							</f:for>
+						</f:then>
+					</f:if>
+					<f:if condition="{product.wine}">
+						<f:then>
+							<f:for each="{product.wine}" as="wine">
+								<wine>
+									<name>{wine.name}</name>
+									<icon>{host}{wine.icon}</icon>
+								</wine>
+							</f:for>
+						</f:then>
+					</f:if>
+					<f:if condition="{product.usages}">
+						<f:then>
+							<f:for each="{product.usages}" as="usage">
+								<usage>
+									<name>{usage.name}</name>
+									<icon>{host}{usage.icon}</icon>
+								</usage>
+							</f:for>
+						</f:then>
+					</f:if>
+					<f:if condition="{product.functions}">
+						<f:then>
+							<f:for each="{product.functions}" as="function">
+								<function>
+									<name>{function.name}</name>
+									<icon>{host}{function.icon}</icon>
+								</function>
+							</f:for>
+						</f:then>
+					</f:if>
+				</product>
+			</f:for>
+		</f:then>
+	</f:if>
+</root>

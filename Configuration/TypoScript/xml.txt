@@ -1,0 +1,36 @@
+xmlWineTreatmentExport = PAGE
+xmlWineTreatmentExport {
+	config {
+		disableAllHeaderCode = 1
+		additionalHeaders = Content-type:text/xml
+		xhtml_cleaning = 0
+		admPanel = 0
+	}
+	10 = USER_INT
+	10 {
+		userFunc = tx_extbase_dispatcher->dispatch
+		pluginName = Pi1
+		extensionName = WineTreatment
+		settings = < plugin.tx_winetreatment.settings
+	}
+	typeNum = 1259535160
+}
+
+xmlWineTreatmentExportCategory < xmlWineTreatmentExport
+xmlWineTreatmentExportCategory {
+    typeNum = 1259535161
+    10 {
+        controller = Export
+        action = list
+    }
+}
+
+xmlWineTreatmentExportProduct < xmlWineTreatmentExport
+xmlWineTreatmentExportProduct {
+    typeNum = 1259535162
+    10 {
+        controller = Export
+        action = detail
+    }
+}
+

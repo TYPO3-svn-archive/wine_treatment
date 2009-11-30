@@ -1,0 +1,2 @@
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:wine_treatment/Configuration/TypoScript/xml.txt">
+

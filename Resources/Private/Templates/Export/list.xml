@@ -1,0 +1,38 @@
+<?xml version='1.0' standalone='yes'?>
+<root>
+	<f:if condition="{error}">
+		<f:then>
+			<status>error</status>
+			<message>{error}</message>
+		</f:then>
+		<f:else>
+			<status>success</status>
+		</f:else>
+	</f:if>
+	<f:if condition="{categories}">
+		<f:then>
+			<f:for each="{categories}" as="category">
+				<category>
+					<name>{category.name}</name>
+					<tstamp><f:format.date format="Y-m-d H:i:s">{category.tstamp}</f:format.date></tstamp>
+					<f:if condition="{category.url}">
+						<f:then>
+							<url>http://{category.url}</url>
+						</f:then>
+						<f:else>
+							<url/>
+						</f:else>
+					</f:if>
+					<f:if condition="{f:format.date(date: category.gvoValid, format: 'U')} == 0">
+						<f:then>
+							<gvo_valid></gvo_valid>
+						</f:then>
+						<f:else>
+							<gvo_valid><f:format.date format="Y-m-d">{category.gvoValid}</f:format.date></gvo_valid>
+						</f:else>
+					</f:if>
+				</category>
+			</f:for>
+		</f:then>
+	</f:if>
+</root>
