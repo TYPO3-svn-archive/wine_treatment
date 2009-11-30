@@ -54,7 +54,9 @@ class Tx_WineTreatment_Controller_ExportController extends Tx_Extbase_MVC_Contro
 			$this->view->assign('host', t3lib_div::getIndpEnv('TYPO3_SITE_URL'));
 			$this->historyService->save(
 				$this->request->getArgument('customer'),
-				(int)$this->settings['historyPid']
+				(int)$this->settings['historyPid'],
+				'wine_treatment',
+				''
 			);
 		}
 
@@ -93,7 +95,9 @@ class Tx_WineTreatment_Controller_ExportController extends Tx_Extbase_MVC_Contro
 				$this->view->assign('host', t3lib_div::getIndpEnv('TYPO3_SITE_URL'));
 				$this->historyService->save(
 					$this->request->getArgument('customer'),
-					(int)$this->settings['historyPid']
+					(int)$this->settings['historyPid'],
+					'wine_treatment',
+					'Category: ' . $this->request->getArgument('category')
 				);
 			}
 
